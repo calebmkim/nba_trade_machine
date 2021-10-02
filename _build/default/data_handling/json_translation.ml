@@ -65,4 +65,4 @@ let get_roster_names_by_name n = List.map (fun x -> x.name) (get_roster_by_name 
 
 let get_roster_names_by_int i = List.map (fun x -> x.name) (get_roster_by_int i) 
 
-
+let team_names = List.map (fun x -> fst x) team_ids 
