@@ -2,6 +2,45 @@ open Graphics
 open Data 
 open Json_translation
 
+
+(*
+let _ = open_graph "";;
+
+let show_welcome = draw_string "Welcome to our NBA Trade Machine. Here /
+are the instructions: "; wait_next_event [Button_down]
+let play_game = open_graph ""; print_endline "hi"
+
+let main () =
+  play_game
+
+(* Execute the game engine. *)
+let () = main ()
+*)
+
+(**************************************************************************)
+(*                                                                        *)
+(*                                 OCaml                                  *)
+(*                                                                        *)
+(*              Damien Doligez, projet Para, INRIA Rocquencourt           *)
+(*                                                                        *)
+(*   Copyright 1999 Institut National de Recherche en Informatique et     *)
+(*     en Automatique.                                                    *)
+(*                                                                        *)
+(*   All rights reserved.  This file is distributed under the terms of    *)
+(*   the GNU Lesser General Public License version 2.1, with the          *)
+(*   special exception on linking described in the file LICENSE.          *)
+(*                                                                        *)
+(**************************************************************************)
+
+(* To run this example:
+   ********************
+   1. Select all the text in this window.
+   2. Drag it to the toplevel window.
+   3. Watch the colors.
+   4. Drag the mouse over the graphics window and click here and there.
+   5. Type any key to the graphics window to stop the program.
+*)
+
 open Graphics
 
 ;;
@@ -223,3 +262,12 @@ try
     draw_image caml st.mouse_x st.mouse_y
   done
 with Exit -> ()
+
+(* To run this example:
+   ********************
+   1. Select all the text in this window.
+   2. Drag it to the toplevel window.
+   3. Watch the colors.
+   4. Drag the mouse over the graphics window and click here and there.
+   5. Type any key to the graphics window to stop the program.
+*)

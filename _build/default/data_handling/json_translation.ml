@@ -1,13 +1,14 @@
 open Yojson.Basic.Util
 
-type player = {name: string; team:int}
+type player = {name: string; team:int; stats: (string * (float option)) list }
 
 let season_info = Yojson.Basic.from_file "data/player_info.json"
 let team_ids = "data/team_ids.json" |> Yojson.Basic.from_file |> to_assoc
 
+(**[players is the Yojson.Basic.t form of the player data]*)
 let players = season_info |> to_assoc|> List.assoc "players" |> to_list 
 
-
+(**[get_team p] gets the team of the player represented by [p]*)
 let get_team p= 
 p|> to_assoc |> List.assoc "tid" |> to_int 
 
@@ -28,22 +29,40 @@ let get_ows p =
   p_info |> List.assoc "stats" |> to_list |> List.find (is_reg_season 2021) |> 
   to_assoc |> List.assoc "ows"
 
-
+(**[make_player p] makes a player record for [p] if p is a player currently 
+in the NBA. If not, then nothing return a .*)
 let make_player p = 
   let p_team = get_team p in 
-  if (p_team >= 0) then {name = get_name p; team = p_team} else {name = ""; team = -1}
-let league_build p_list = List.map (make_player) p_list |> List.filter (fun x -> x.name <> "")
+  if (p_team >= 0) then Some {name = get_name p; team = p_team; stats = []} else None 
+
+(**[get_player_record] is used as a helper function to get the actual value of a player 
+from a player option*)
+let get_player_record p = match p with 
+| Some v -> v 
+|None -> failwith "Player Doesn't Exist"
+
+(**[league_build p_list] is the list of all NBA players currently playing*)
+let league_build p_list = List.map (make_player) p_list |> 
+List.filter (fun x -> x <> None) |> List.map (get_player_record) 
+
+(**[player_record] is a list of all the nba players currently playing*)
 let player_record = league_build players
 
+(**[get_roster_by_int i] is the list of players on the team corresponding to 
+team_id [i]. Requires: 0<=i<=29*)
 let get_roster_by_int i = List.filter (fun x -> x.team = i) player_record 
 
+(**[get_team_id team_name] is the team_id of the name of an nba team. Requires: 
+[team_name] is the name of an NBA team, properly capitalized. Ex: "Boston Celtics". 
+would work, but "boston celtics" would not work.*)
 let get_team_id team_name = (List.assoc team_name team_ids) |> to_int
 
+(**[get_roster_by_name n] is the list of players on the team corresponding to 
+team name [n]. Requires:[n] is the name of a properly capitalized NBA team. *)
 let get_roster_by_name n = List.filter (fun x -> x.team = (get_team_id n)) player_record
 
-let get_roster_strings n = List.map (fun x -> x.name) (get_roster_by_name n) 
+let get_roster_names_by_name n = List.map (fun x -> x.name) (get_roster_by_name n) 
 
-let celtics = get_roster_by_name "Boston Celtics"
+let get_roster_names_by_int i = List.map (fun x -> x.name) (get_roster_by_int i) 
 
-let hawks = get_roster_by_int 0
 
