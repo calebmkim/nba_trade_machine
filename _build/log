@@ -1,10 +1,10 @@
 # dune exec gameplay/play.exe
 # OCAMLPARAM: unset
 # Workspace root: /Users/calebkim/cs3110/project
-$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune5a7d4c.output 2> /dev/null
+$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune8d5b74.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dunef0f8d2.output
+$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune957384.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -115,6 +115,7 @@ $ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/
 #      }
 #  }
 # Workspace root: /Users/calebkim/cs3110/project
-$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -bin-annot -I gameplay/.play.eobjs/byte -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -no-alias-deps -opaque -o gameplay/.play.eobjs/byte/dune__exe__Play.cmo -c -impl gameplay/play.ml)
-$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -I gameplay/.play.eobjs/byte -I gameplay/.play.eobjs/native -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -I data_handling/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -o gameplay/.play.eobjs/native/dune__exe__Play.cmx -c -impl gameplay/play.ml)
-$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -o gameplay/play.exe /Users/calebkim/.opam/cs3110-project/lib/graphics/graphics.cmxa -I /Users/calebkim/.opam/cs3110-project/lib/graphics /Users/calebkim/.opam/cs3110-project/lib/easy-format/easy_format.cmxa /Users/calebkim/.opam/cs3110-project/lib/biniou/biniou.cmxa /Users/calebkim/.opam/cs3110-project/lib/yojson/yojson.cmxa data_handling/data.cmxa gameplay/.play.eobjs/native/dune__exe__Play.cmx)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamldep.opt -modules -impl gameplay/play.ml) > _build/default/gameplay/.play.eobjs/play.ml.d
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -bin-annot -I gameplay/.play.eobjs/byte -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -no-alias-deps -opaque -open Dune__exe -o gameplay/.play.eobjs/byte/dune__exe__Play.cmo -c -impl gameplay/play.ml)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -I gameplay/.play.eobjs/byte -I gameplay/.play.eobjs/native -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -I data_handling/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o gameplay/.play.eobjs/native/dune__exe__Play.cmx -c -impl gameplay/play.ml)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -o gameplay/play.exe /Users/calebkim/.opam/cs3110-project/lib/graphics/graphics.cmxa -I /Users/calebkim/.opam/cs3110-project/lib/graphics /Users/calebkim/.opam/cs3110-project/lib/easy-format/easy_format.cmxa /Users/calebkim/.opam/cs3110-project/lib/biniou/biniou.cmxa /Users/calebkim/.opam/cs3110-project/lib/yojson/yojson.cmxa data_handling/data.cmxa gameplay/.play.eobjs/native/dune__exe.cmx gameplay/.play.eobjs/native/dune__exe__Button.cmx gameplay/.play.eobjs/native/dune__exe__Play.cmx)

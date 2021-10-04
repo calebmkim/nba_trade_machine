@@ -1,0 +1,6 @@
+(** @canonical Dune__exe.Button *)
+module Button = Dune__exe__Button
+
+
+(** @canonical Dune__exe.Play *)
+module Play = Dune__exe__Play
