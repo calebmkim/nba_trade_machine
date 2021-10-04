@@ -1,13 +1,18 @@
 open Graphics 
 open Data 
 open Json_translation
-open Button 
+open WelcomeScreen
 
-let _ = open_graph "";;
 
-let show_welcome = 
-  draw_string "Welcome to our NBA Trade Machine. Here are the instructions: ";
-wait_next_event [Button_down]
+let _ = open_graph " 900x600";;
+let () = set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*"
+
+type state = Welcome | Teams | Roster of string 
+let cur_state = Welcome 
+
+let  play = 
+  if (cur_state = Welcome) then show_welcome else failwith "hi"
+
 
 type button = {text: string; ll: int*int;  ur: int*int}
 
@@ -48,20 +53,18 @@ let show_team_roster name=
   wait_next_event [Button_down]
 
 let is_clicked x y button= 
-print_endline (fst button.ur |> string_of_int);
 ((fst button.ll) <=x) && (fst button.ur >=x) && 
 (snd button.ll <= y) && (snd button.ur >= y)
 
 let handle_click st lst=
-    print_endline "handling click";
     try let team = List.find (fun x -> is_clicked (st.mouse_x) (st.mouse_y) x) lst in 
     show_team_roster (team.text) 
   with 
-  _ -> show_team_roster "Boton Celtics"
+  _ -> show_team_roster "Boston Celtics"
 
 let show_team_list = 
   moveto 0 y;
-  set_font "-linotype-avenir book-medium-r-normal--0-0-0-0-p-0-adobe-standard"; 
+  (*set_font "-linotype-avenir book-medium-r-normal--0-0-0-0-p-0-adobe-standard";*)
   let max_horz = get_max_size team_names in 
   let button_list = List.map (fun x -> print_team_name x (current_x ()) (current_y ()) max_horz)team_names in 
   let st = wait_next_event [Button_down] in 
