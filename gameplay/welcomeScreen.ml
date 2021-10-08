@@ -1,15 +1,14 @@
 open Graphics 
+open Consts
 
-let _ = open_graph " 900x600";;
-let () = set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*"
-
-type state = Welcome | Teams | Roster of string 
 
 let handle_click st = 
-  Teams 
+  Teams []
 
-let show_welcome = 
+let show_welcome t = 
+  let _ = open_graph " 900x600" in 
+  let () = set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*" in 
   draw_string "Welcome to our NBA Trade Machine. Click anywhere to start";
 let st = wait_next_event [Button_down] in 
-  (ignore st)
+  handle_click st 
 

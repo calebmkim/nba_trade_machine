@@ -1,4 +1,4 @@
 build:
 	dune build
 play:
-	OCAMLRUNPARAM=b dune exec gameplay/play.exe
+	OCAMLRUNPARAM=b dune exec state_handler/play.exe

@@ -1,3 +1,4 @@
-(executables
- (names play button welcomeScreen)
- (libraries graphics Data))
+(library
+ (name gameplay)
+ (public_name Gameplay)
+ (libraries graphics Data yojson))
