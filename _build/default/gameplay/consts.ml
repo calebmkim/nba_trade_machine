@@ -8,7 +8,8 @@ let get_name_transition t = t.team
 
 let get_list_transition t = t.cur_teams  
 
-type state = Welcome | Teams of (string list) | Roster of show_team_helper |Team_transition of show_team_helper 
+type state = Welcome | Teams of (string list) | Roster of show_team_helper 
+|Team_transition of show_team_helper 
 
 (*
 let string_of_state st = match st with 

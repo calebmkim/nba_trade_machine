@@ -7,8 +7,8 @@ open WelcomeScreen
 
 let rec show_screen cur_state = 
   match cur_state with 
-  |Roster x -> let st = (show_team_roster x) in (show_screen st)
   |Welcome -> let st = show_welcome Welcome in (show_screen st)
+  |Roster x -> let st = (show_team_roster x) in (show_screen st)
   |Teams x -> let st = show_team_list x in  (show_screen st)
   |Team_transition x -> let st = team_options x in (show_screen st)
 

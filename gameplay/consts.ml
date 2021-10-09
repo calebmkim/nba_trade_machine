@@ -4,11 +4,16 @@ type button = {text: string; ll: int*int;  ur: int*int}
 
 type show_team_helper = {team: string; cur_teams: string list}
 
+type show_player_helper = {player: string; cur_teams: string list}
+
 let get_name_transition t = t.team 
 
 let get_list_transition t = t.cur_teams  
 
-type state = Welcome | Teams of (string list) | Roster of show_team_helper |Team_transition of show_team_helper 
+type state = Welcome | Teams of (string list) | Roster of show_team_helper 
+|Team_transition of show_team_helper |Player of show_player_helper 
+|Player_transition of show_player_helper |FinalTeams of string list 
+
 
 (*
 let string_of_state st = match st with 

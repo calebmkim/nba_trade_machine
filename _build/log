@@ -1,10 +1,10 @@
 # dune exec state_handler/play.exe
 # OCAMLPARAM: unset
 # Workspace root: /Users/calebkim/cs3110/project
-$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/duned74132.output 2> /dev/null
+$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune0ada52.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/duneba181f.output
+$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune51437f.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
