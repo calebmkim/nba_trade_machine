@@ -66,3 +66,11 @@ let get_roster_names_by_name n = List.map (fun x -> x.name) (get_roster_by_name 
 let get_roster_names_by_int i = List.map (fun x -> x.name) (get_roster_by_int i) 
 
 let team_names = List.map (fun x -> fst x) team_ids 
+
+let get_team_name_from_id i = List.find (fun x -> get_team_id x = i) (team_names)
+
+let get_team_of_player p = try 
+ let player = List.find (fun r -> r.name = p) player_record in 
+ player.team|> get_team_name_from_id
+with 
+_ -> failwith "Cannot find player"

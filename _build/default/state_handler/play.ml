@@ -5,15 +5,21 @@ open Team_list
 open Transition
 open WelcomeScreen
 
-let rec show_screen cur_state = 
+let rec show_screen cur_state trade_map= 
   match cur_state with 
-  |Welcome -> let st = show_welcome Welcome in (show_screen st)
-  |Roster x -> let st = (show_team_roster x) in (show_screen st)
-  |Teams x -> let st = show_team_list x in  (show_screen st)
-  |Team_transition x -> let st = team_options x in (show_screen st)
+  |Welcome -> let st = show_welcome Welcome in (show_screen st trade_map)
+  |Roster x -> let st = (show_team_roster (fst x) (snd x)) in (show_screen st trade_map)
+  |Teams x -> let st = show_team_list x in  (show_screen st trade_map) 
+  |Team_transition x -> let st = team_options x in (show_screen st trade_map)
+  |FinalTeams x -> let result = show_final_teams x in
+  let st = (fst result) in 
+  let tm = (snd result) in 
+  (show_screen st tm) 
+  |Player x -> let st = show_player (fst x) (snd x) trade_map in (show_screen st trade_map)
+  |Player_transition x -> let st = player_transition x trade_map in (show_screen st trade_map)
 
 let main () =
-  let _ = show_screen Welcome 
+  let _ = show_screen Welcome []
   in ()
   
 

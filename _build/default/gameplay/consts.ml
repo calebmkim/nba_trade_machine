@@ -26,9 +26,9 @@ let get_list_transition t = t.cur_teams
 
 let build_setting id team_list = {identifier= id; cur_teams = team_list}
 
-type state = Welcome | Teams of (string list) | Roster of setting
-|Team_transition of setting |Player of setting 
-|Player_transition of setting |FinalTeams of string list 
+type state = Welcome | Teams of (string list) | Roster of (setting * bool) 
+|Team_transition of setting |Player of (setting * bool)
+|Player_transition of string |FinalTeams of (string* (string list)) list
 
 
 (*

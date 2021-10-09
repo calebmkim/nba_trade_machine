@@ -9,3 +9,6 @@ val get_roster_names_by_int: int -> string list
 
 (**[team_names] are all 30 NBA teams in alphabetical order by city Name*)
 val team_names: string list 
+
+(**[get_team_of_player p] is the team name of player [p]*)
+val get_team_of_player: string -> string 
