@@ -83,10 +83,9 @@ let handle_click_final_teams st team_list trade_map =
   let x = st.mouse_x in 
   let y = st.mouse_y in 
   let team = List.find (fun b -> button_clicked b x y) team_list in 
-  (Roster ((build_setting (get_button_text team) team_strings),true), trade_map)
+  Roster ((build_setting (get_button_text team) team_strings),true)
 with 
-_ -> (FinalTeams (trade_map), trade_map)
-
+_ -> (FinalTeams trade_map)
 
 let show_final_teams trade_map = 
   open_graph_our_settings "";
