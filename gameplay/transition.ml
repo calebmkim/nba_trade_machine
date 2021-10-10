@@ -5,6 +5,10 @@ open Data
 open Json_translation
 open Common_functions
 
+let start_transition max_y= 
+  open_graph_our_settings "";
+  moveto 0 max_y 
+
 let handle_click_team_transition st lst name team_list = let settings = 
 (build_setting name team_list ) in
 try let decision = List.find
@@ -12,20 +16,14 @@ try let decision = List.find
  if (get_button_text decision) = "Examine Roster" then Roster (settings,false) 
 else if (List.mem name team_list) then Teams team_list else Teams (name::team_list)
 with 
-_ -> Team_transition (build_setting name team_list)
+_ -> Team_transition (settings)
 
 let team_options setting = 
-  open_graph_our_settings "";
-  let y = size_y () in  
-  let vert_text_size = snd (text_size "") in 
-  let () = moveto 0 (y - vert_text_size) in 
-  let () = draw_string ("You have selected the " ^ (get_name_setting setting)) in 
-  let () = moveto (0) (current_y () - vert_text_size) in 
-  let () = draw_string ("What would you like to do next?") in 
-  let () = moveto (0) (current_y ()) in 
+  start_transition (size_y ());
+  let _ = let messages = ["You have selected the " ^ (get_name_setting setting)]
+  in make_button_list messages in 
   let opts = ["Add team to trade"; "Examine Roster"] in 
-  let max_horz = get_max_size opts in 
-  let option_list = List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) opts in 
+  let option_list = make_button_list opts in 
   let st = wait_next_event [Button_down] in 
   handle_click_team_transition st option_list (get_name_setting setting)
    (get_list_setting setting) 
@@ -46,13 +44,10 @@ with
 _ -> Player_transition name 
 
 let player_transition name trade_map = 
-  open_graph_our_settings ""; 
-  let vert_text_size = snd (text_size "") in 
-  let () = moveto 0 (y - vert_text_size) in 
-  let () = draw_string ("Where would you like to trade " ^ name ^ " to?") in 
-let () = moveto (0) (current_y ())  in 
-let team_names = get_possible_teams name trade_map in 
-let max_horz = get_max_size team_names in 
-let button_list = List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) team_names in 
-let st = wait_next_event [Button_down] in 
-handle_click_player_transition st button_list name trade_map 
+  let _ = start_transition (size_y ()) in
+  let _ = let messages = ["Where would you like to trade " ^ name ^ " to?"] in
+  make_button_list messages in 
+  let team_names = get_possible_teams name trade_map in 
+  let button_list = make_button_list team_names in 
+  let st = wait_next_event [Button_down] in 
+  handle_click_player_transition st button_list name trade_map 

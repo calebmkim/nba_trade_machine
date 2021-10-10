@@ -32,3 +32,9 @@ let print_name name cur_x cur_y max_horz=
   let () = draw_rect (fst new_point) (snd new_point) size_horz size_vert in 
   let () = moveto (fst new_point) (current_y ())
   in (build_button name new_point size_horz size_vert)
+
+let make_button_list button_text_list = 
+let max_horz = get_max_size button_text_list in 
+List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) 
+  button_text_list
+  

@@ -4,7 +4,8 @@ open Json_translation
 open Consts
 open Common_functions
 
-let handle_click_roster st settings player_list are_teams_picked = 
+
+let handle_click_roster st settings player_list are_teams_picked trade_map= 
   try 
   let x = st.mouse_x in 
   let y = st.mouse_y in 
@@ -13,9 +14,10 @@ let handle_click_roster st settings player_list are_teams_picked =
   let teams = (get_list_setting settings) in 
   Player (build_setting player_name teams, are_teams_picked)
 with  
-  _ -> Teams (get_list_setting settings)
+  _ -> if (are_teams_picked) then FinalTeams trade_map else 
+    Teams (get_list_setting settings)
 
-let show_team_roster settings are_teams_picked= 
+let show_team_roster settings are_teams_picked trade_map= 
   open_graph_our_settings "";
   moveto 0 y; 
   let roster = get_roster_names_by_name (get_name_setting settings) in 
@@ -23,7 +25,7 @@ let show_team_roster settings are_teams_picked=
   let button_list = List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) roster in 
   (ignore button_list);
   let st = wait_next_event [Button_down] in 
-  handle_click_roster st settings button_list are_teams_picked
+  handle_click_roster st settings button_list are_teams_picked trade_map
 
 let handle_click_teams st button_list cur_teams final_button =
     try 
@@ -84,13 +86,25 @@ let show_final_teams trade_map =
   let st = wait_next_event [Button_down] in 
   handle_click_final_teams st button_list trade_map
 
-let handle_player_click st name trade_button trade_map are_teams_picked = 
-  if (are_teams_picked) then 
-    if (button_clicked trade_button st.mouse_x st.mouse_y ) then Player_transition name 
-    else FinalTeams trade_map 
-  else Welcome 
+let handle_player_click st setting = let player_name = (get_name_setting setting) in 
+  let team_name = get_team_of_player player_name in 
+  let new_setting = {setting with identifier = team_name} in 
+  Roster (new_setting,false) 
 
-let show_player setting are_teams_picked trade_map= 
+let show_player setting = 
+  open_graph_our_settings "";
+  moveto 0 y;
+  let name = (get_name_setting setting) in 
+  let max_horz = get_size_horz name in 
+  let _ =  print_name name (current_x ()) (current_y ()) max_horz in 
+  let st = wait_next_event [Button_down] in 
+  handle_player_click st setting 
+
+let handle_player_trade_click st name trade_button trade_map = 
+  if (button_clicked trade_button st.mouse_x st.mouse_y ) then Player_transition name 
+  else FinalTeams trade_map 
+
+let show_player_trade setting trade_map = 
   open_graph_our_settings "";
   moveto 0 y;
   let name = (get_name_setting setting) in 
@@ -101,7 +115,9 @@ let show_player setting are_teams_picked trade_map=
   max_horz in 
   let () = set_color black in 
   let st = wait_next_event [Button_down] in 
-  handle_player_click st name trade_button trade_map are_teams_picked
+  handle_player_trade_click st name trade_button trade_map 
+  
+
 
 
 
