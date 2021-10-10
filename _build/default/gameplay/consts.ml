@@ -1,9 +1,5 @@
 open Graphics 
 
-let open_graph_our_settings s= 
-  let _ = open_graph " 900x600" in 
-  set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*" 
-
 (**[button] represents a button with dimensions [length] by [height], lower 
 left coordinate [ll] and has text [text]*)
 type button = {text: string; ll: int*int; length: int; height: int} 

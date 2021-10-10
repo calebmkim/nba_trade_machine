@@ -3,6 +3,7 @@ open Graphics
 open Main_pages
 open Data 
 open Json_translation
+open Common_functions
 
 let handle_click_team_transition st lst name team_list = let settings = 
 (build_setting name team_list ) in

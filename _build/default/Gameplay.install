@@ -1,5 +1,6 @@
 lib: [
   "_build/install/default/lib/Gameplay/META"
+  "_build/install/default/lib/Gameplay/common_functions.ml"
   "_build/install/default/lib/Gameplay/consts.ml"
   "_build/install/default/lib/Gameplay/dune-package"
   "_build/install/default/lib/Gameplay/gameplay.a"
@@ -9,6 +10,9 @@ lib: [
   "_build/install/default/lib/Gameplay/gameplay.cmx"
   "_build/install/default/lib/Gameplay/gameplay.cmxa"
   "_build/install/default/lib/Gameplay/gameplay.ml"
+  "_build/install/default/lib/Gameplay/gameplay__Common_functions.cmi"
+  "_build/install/default/lib/Gameplay/gameplay__Common_functions.cmt"
+  "_build/install/default/lib/Gameplay/gameplay__Common_functions.cmx"
   "_build/install/default/lib/Gameplay/gameplay__Consts.cmi"
   "_build/install/default/lib/Gameplay/gameplay__Consts.cmt"
   "_build/install/default/lib/Gameplay/gameplay__Consts.cmx"
