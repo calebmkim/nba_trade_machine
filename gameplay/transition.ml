@@ -27,7 +27,7 @@ let team_options setting =
   let option_list = List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) opts in 
   let st = wait_next_event [Button_down] in 
   handle_click_team_transition st option_list (get_name_setting setting)
-   (get_list_transition setting) 
+   (get_list_setting setting) 
   
 let get_possible_teams name trade_map = 
   let team = get_team_of_player name in 

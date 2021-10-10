@@ -11,17 +11,13 @@ let rec show_screen cur_state trade_map=
   |Roster x -> let st = (show_team_roster (fst x) (snd x)) in (show_screen st trade_map)
   |Teams x -> let st = show_team_list x in  (show_screen st trade_map) 
   |Team_transition x -> let st = team_options x in (show_screen st trade_map)
-  |FinalTeams x -> let result = show_final_teams x in
-  let st = (fst result) in 
-  let tm = (snd result) in 
-  (show_screen st tm) 
+  |FinalTeams x -> let (st, tm)= show_final_teams x in (show_screen st tm) 
   |Player x -> let st = show_player (fst x) (snd x) trade_map in (show_screen st trade_map)
   |Player_transition x -> let st = player_transition x trade_map in (show_screen st trade_map)
 
 let main () =
   let _ = show_screen Welcome []
   in ()
-  
 
 (* Execute the game engine. *)
 let () = main ()

@@ -37,10 +37,10 @@ let handle_click_roster st settings player_list are_teams_picked =
   let y = st.mouse_y in 
   let player = List.find (fun b -> button_clicked b x y) player_list in 
   let player_name = (get_button_text player) in 
-  let teams = (get_list_transition settings) in 
+  let teams = (get_list_setting settings) in 
   Player (build_setting player_name teams, are_teams_picked)
 with  
-  _ -> Teams (get_list_transition settings)
+  _ -> Teams (get_list_setting settings)
 
 let show_team_roster settings are_teams_picked= 
   open_graph_our_settings "";
@@ -87,7 +87,6 @@ let handle_click_final_teams st team_list trade_map =
 with 
 _ -> (FinalTeams (trade_map), trade_map)
 
-
 let get_max_size_overall trade_map = 
   let combined_list = List.flatten (List.map (fun (x,y) -> x::y) trade_map) in 
   get_max_size combined_list
@@ -101,10 +100,13 @@ let print_trademap_pair  max_size_overall (team, players_recieving)=
   players_recieving in 
   team_button 
 
+let comapre_team_tuples x y = if (fst x < fst y) then 1 else -1 
+
 let show_final_teams trade_map = 
   open_graph_our_settings "";
   moveto 0 y;
   let max_horz = get_max_size_overall trade_map in 
+  let trade_map = List.sort comapre_team_tuples trade_map in 
   let button_list = List.map (print_trademap_pair max_horz) trade_map in 
   let st = wait_next_event [Button_down] in 
   handle_click_final_teams st button_list trade_map

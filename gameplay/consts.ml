@@ -22,18 +22,10 @@ type setting = {identifier: string; cur_teams: string list}
 
 let get_name_setting t = t.identifier 
 
-let get_list_transition t = t.cur_teams  
+let get_list_setting t = t.cur_teams  
 
 let build_setting id team_list = {identifier= id; cur_teams = team_list}
 
 type state = Welcome | Teams of (string list) | Roster of (setting * bool) 
 |Team_transition of setting |Player of (setting * bool)
 |Player_transition of string |FinalTeams of (string* (string list)) list
-
-
-(*
-let string_of_state st = match st with 
-| Welcome -> "Welcome"
-| Teams x -> "Teams"
-| Roster x -> "Roster " ^ x
-| Team_transition x -> "Team transition " ^ x.team *)
