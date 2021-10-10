@@ -44,6 +44,7 @@ FinalTeams new_trade_map
 with 
 _ -> Player_transition name 
 
+
 let player_transition name trade_map = 
   open_graph_our_settings ""; 
   let vert_text_size = snd (text_size "") in 

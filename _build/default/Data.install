@@ -1,0 +1,21 @@
+lib: [
+  "_build/install/default/lib/Data/META"
+  "_build/install/default/lib/Data/data.a"
+  "_build/install/default/lib/Data/data.cma"
+  "_build/install/default/lib/Data/data.cmi"
+  "_build/install/default/lib/Data/data.cmt"
+  "_build/install/default/lib/Data/data.cmx"
+  "_build/install/default/lib/Data/data.cmxa"
+  "_build/install/default/lib/Data/data.ml"
+  "_build/install/default/lib/Data/data__Json_translation.cmi"
+  "_build/install/default/lib/Data/data__Json_translation.cmt"
+  "_build/install/default/lib/Data/data__Json_translation.cmti"
+  "_build/install/default/lib/Data/data__Json_translation.cmx"
+  "_build/install/default/lib/Data/dune-package"
+  "_build/install/default/lib/Data/json_translation.ml"
+  "_build/install/default/lib/Data/json_translation.mli"
+  "_build/install/default/lib/Data/opam"
+]
+libexec: [
+  "_build/install/default/lib/Data/data.cmxs"
+]
