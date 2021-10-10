@@ -1,7 +1,7 @@
 open Graphics 
 open Gameplay 
 open Consts 
-open Team_list
+open Main_pages
 open Transition
 open WelcomeScreen
 

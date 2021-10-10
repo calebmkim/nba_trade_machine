@@ -2,8 +2,8 @@
 module Consts = Gameplay__Consts
 
 
-(** @canonical Gameplay.Team_list *)
-module Team_list = Gameplay__Team_list
+(** @canonical Gameplay.Main_pages *)
+module Main_pages = Gameplay__Main_pages
 
 
 (** @canonical Gameplay.Transition *)

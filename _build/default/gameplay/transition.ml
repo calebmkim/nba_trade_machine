@@ -1,6 +1,6 @@
 open Consts
 open Graphics 
-open Team_list
+open Main_pages
 open Data 
 open Json_translation
 

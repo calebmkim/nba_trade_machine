@@ -14,8 +14,8 @@
    (main_module_name Gameplay)
    (modules
     ((name Consts) (obj_name gameplay__Consts) (visibility public) (impl))
-    ((name Team_list)
-     (obj_name gameplay__Team_list)
+    ((name Main_pages)
+     (obj_name gameplay__Main_pages)
      (visibility public)
      (impl))
     ((name Transition)
