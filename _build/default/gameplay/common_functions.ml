@@ -3,7 +3,6 @@ open Consts
 
 let _ = open_graph " 900x600"
 let y = size_y ()
-
 let open_graph_our_settings s= 
   let _ = open_graph " 900x600" in 
   set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*" 
@@ -37,4 +36,14 @@ let make_button_list button_text_list =
 let max_horz = get_max_size button_text_list in 
 List.map (fun x -> print_name x (current_x ()) (current_y ()) max_horz) 
   button_text_list
+
+let find_clicked_button st button_list = 
+  try button_list |> List.find
+  (fun a -> button_clicked a (st.mouse_x) (st.mouse_y)) |> get_button_text 
+  with 
+  _ -> failwith "No button clicked" 
+
+let start_state max_y= 
+  open_graph_our_settings "";
+  moveto 0 max_y 
   
