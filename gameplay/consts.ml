@@ -42,3 +42,4 @@ type state =
   | Player of (setting * bool)
   | Player_transition of string
   | FinalTeams of (string * string list) list
+  | TradeResults of (string * string list) list

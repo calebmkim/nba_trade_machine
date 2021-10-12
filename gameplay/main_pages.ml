@@ -62,11 +62,14 @@ let show_team_list team_list =
     (List.map get_button_text current_teams)
     finalize_button
 
-let handle_click_final_teams st team_list trade_map =
+let handle_click_final_teams st team_list trade_map finish_button =
   let team_strings = List.map (fun x -> get_button_text x) team_list in
   try
-    let team = find_clicked_button st team_list in
-    (Roster (build_setting team team_strings, true), trade_map)
+    if button_clicked finish_button st.mouse_x st.mouse_y then
+      (TradeResults trade_map, trade_map)
+    else
+      let team = find_clicked_button st team_list in
+      (Roster (build_setting team team_strings, true), trade_map)
   with
   | _ -> (FinalTeams trade_map, trade_map)
 
@@ -101,8 +104,11 @@ let show_final_teams trade_map =
   let max_horz = get_max_size_overall trade_map in
   let trade_map = List.sort comapre_team_tuples trade_map in
   let button_list = List.map (print_trademap_pair max_horz) trade_map in
+  set_color red;
+  let finish_button = List.hd (make_button_list [ "Execute Trade" ]) in
+  set_color black;
   let st = wait_next_event [ Button_down ] in
-  handle_click_final_teams st button_list trade_map
+  handle_click_final_teams st button_list trade_map finish_button
 
 let print_player_name setting =
   let name = get_name_setting setting in
@@ -139,3 +145,19 @@ let show_player_trade setting trade_map =
   let () = set_color black in
   let st = wait_next_event [ Button_down ] in
   handle_player_trade_click st name trade_button trade_map
+
+let handle_trade_results_click = Welcome
+
+let change_rosters trade_map =
+  let original_rosters =
+    List.map (fun (team, players) ->
+        (team, get_roster_names_by_name team))
+  in
+  []
+
+let show_trade_results trade_map =
+  start_state (size_y ());
+  let team_names = List.map fst trade_map in
+  let team_buttons = make_button_list team_names in
+  let st = wait_next_event [ Button_down ] in
+  handle_trade_results_click
