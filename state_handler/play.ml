@@ -34,6 +34,9 @@ let rec show_screen cur_state trade_map =
   | TradeResults x ->
       let st = show_trade_results x in
       show_screen st trade_map
+  | AlteredRoster x ->
+      let st = show_new_roster x trade_map in
+      show_screen st trade_map
 
 let main () =
   let _ = show_screen Welcome [] in

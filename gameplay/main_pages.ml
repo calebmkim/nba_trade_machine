@@ -146,18 +146,64 @@ let show_player_trade setting trade_map =
   let st = wait_next_event [ Button_down ] in
   handle_player_trade_click st name trade_button trade_map
 
-let handle_trade_results_click = Welcome
+let handle_trade_results_click st team_buttons altered_rosters trade_map
+    =
+  try
+    let team_selected = find_clicked_button st team_buttons in
+    let fst_of_three (x, y, z) = x in
+    let team_triple =
+      List.find
+        (fun x -> fst_of_three x = team_selected)
+        altered_rosters
+    in
+    AlteredRoster team_triple
+  with
+  | _ -> FinalTeams trade_map
+
+let remove_player name roster = List.filter (fun x -> x <> name) roster
+
+let remove_fully roster_list name =
+  List.map
+    (fun (team_name, roster) -> (team_name, remove_player name roster))
+    roster_list
 
 let change_rosters trade_map =
   let original_rosters =
-    List.map (fun (team, players) ->
-        (team, get_roster_names_by_name team))
+    List.map
+      (fun (team, players) -> (team, get_roster_names_by_name team))
+      trade_map
   in
-  []
+  let traded_players = trade_map |> List.map snd |> List.flatten in
+  let removed_players_roster =
+    List.fold_left remove_fully original_rosters traded_players
+    |> List.sort_uniq (fun (x, y) (x1, y1) -> Stdlib.compare x x1)
+  in
+  let tm =
+    trade_map
+    |> List.sort_uniq (fun (x, y) (x1, y1) -> Stdlib.compare x x1)
+  in
+  List.map2
+    (fun (team, old_players) (team', new_players) ->
+      (team, old_players, new_players))
+    removed_players_roster tm
 
 let show_trade_results trade_map =
   start_state (size_y ());
   let team_names = List.map fst trade_map in
   let team_buttons = make_button_list team_names in
+  let altered_rosters = change_rosters trade_map in
   let st = wait_next_event [ Button_down ] in
-  handle_trade_results_click
+  handle_trade_results_click st team_buttons altered_rosters trade_map
+
+let show_new_roster (name, old, incoming) trade_map =
+  start_state (size_y ());
+  let n = [ name ] in
+  set_color blue;
+  let _ = make_button_list n in
+  set_color black;
+  let _ = make_button_list old in
+  set_color red;
+  let _ = make_button_list incoming in
+  set_color black;
+  let _ = wait_next_event [ Button_down ] in
+  TradeResults trade_map
