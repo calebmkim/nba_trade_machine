@@ -160,9 +160,13 @@ let handle_trade_results_click st team_buttons altered_rosters trade_map
   with
   | _ -> FinalTeams trade_map
 
-let remove_player name roster = List.filter (fun x -> x <> name) roster
+let sort_team_tuples =
+  List.sort_uniq (fun (x, y) (x1, y1) -> Stdlib.compare x x1)
 
 let remove_fully roster_list name =
+  let remove_player name roster =
+    List.filter (fun x -> x <> name) roster
+  in
   List.map
     (fun (team_name, roster) -> (team_name, remove_player name roster))
     roster_list
@@ -176,12 +180,9 @@ let change_rosters trade_map =
   let traded_players = trade_map |> List.map snd |> List.flatten in
   let removed_players_roster =
     List.fold_left remove_fully original_rosters traded_players
-    |> List.sort_uniq (fun (x, y) (x1, y1) -> Stdlib.compare x x1)
+    |> sort_team_tuples
   in
-  let tm =
-    trade_map
-    |> List.sort_uniq (fun (x, y) (x1, y1) -> Stdlib.compare x x1)
-  in
+  let tm = trade_map |> sort_team_tuples in
   List.map2
     (fun (team, old_players) (team', new_players) ->
       (team, old_players, new_players))
@@ -198,7 +199,9 @@ let show_trade_results trade_map =
 let show_new_roster (name, old, incoming) trade_map =
   start_state (size_y ());
   let n = [ name ] in
+  set_color blue;
   let _ = make_button_list n in
+  set_color black;
   let _ = make_button_list old in
   set_color red;
   let _ = make_button_list incoming in

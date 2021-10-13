@@ -34,6 +34,8 @@ let get_list_setting t = t.cur_teams
 let build_setting id team_list =
   { identifier = id; cur_teams = team_list }
 
+type trade_map = (string * string list) list
+
 type state =
   | Welcome
   | Teams of string list

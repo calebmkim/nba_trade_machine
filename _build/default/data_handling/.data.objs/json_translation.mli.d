@@ -1,1 +1,1 @@
-data_handling/json_translation.mli:
+data_handling/json_translation.mli: Yojson
