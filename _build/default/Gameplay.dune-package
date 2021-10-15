@@ -13,15 +13,16 @@
   (wrapped
    (main_module_name Gameplay)
    (modules
+    ((name Button) (obj_name gameplay__Button) (visibility public) (impl))
     ((name Common_functions)
      (obj_name gameplay__Common_functions)
      (visibility public)
      (impl))
-    ((name Consts) (obj_name gameplay__Consts) (visibility public) (impl))
     ((name Main_pages)
      (obj_name gameplay__Main_pages)
      (visibility public)
      (impl))
+    ((name States) (obj_name gameplay__States) (visibility public) (impl))
     ((name Transition)
      (obj_name gameplay__Transition)
      (visibility public)

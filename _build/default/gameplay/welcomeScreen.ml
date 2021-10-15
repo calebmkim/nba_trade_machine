@@ -1,5 +1,6 @@
 open Graphics
-open Consts
+open Button
+open States
 
 let handle_click st = Teams []
 

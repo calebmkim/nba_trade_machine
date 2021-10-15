@@ -1,1 +1,1 @@
-gameplay/transition.mli: Consts
+gameplay/transition.mli: Button States

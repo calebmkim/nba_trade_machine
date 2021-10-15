@@ -1,5 +1,3 @@
-open Graphics
-
 type button = {
   text : string;
   ll : int * int;

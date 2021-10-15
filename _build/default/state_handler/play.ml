@@ -1,6 +1,7 @@
 open Graphics
 open Gameplay
-open Consts
+open States
+open Button
 open Main_pages
 open Transition
 open WelcomeScreen

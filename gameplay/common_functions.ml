@@ -1,5 +1,6 @@
 open Graphics
-open Consts
+open Button
+open States
 
 let _ = open_graph " 900x600"
 

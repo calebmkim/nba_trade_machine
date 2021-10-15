@@ -1,1 +1,1 @@
-gameplay/main_pages.ml: Common_functions Consts Data Graphics Json_translation List Stdlib
+gameplay/main_pages.ml: Button Common_functions Data Graphics Json_translation List States Stdlib

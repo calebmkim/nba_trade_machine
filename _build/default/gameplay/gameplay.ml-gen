@@ -1,13 +1,17 @@
+(** @canonical Gameplay.Button *)
+module Button = Gameplay__Button
+
+
 (** @canonical Gameplay.Common_functions *)
 module Common_functions = Gameplay__Common_functions
 
 
-(** @canonical Gameplay.Consts *)
-module Consts = Gameplay__Consts
-
-
 (** @canonical Gameplay.Main_pages *)
 module Main_pages = Gameplay__Main_pages
+
+
+(** @canonical Gameplay.States *)
+module States = Gameplay__States
 
 
 (** @canonical Gameplay.Transition *)

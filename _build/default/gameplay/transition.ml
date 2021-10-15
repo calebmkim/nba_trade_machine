@@ -1,9 +1,10 @@
-open Consts
 open Graphics
 open Main_pages
 open Data
 open Json_translation
 open Common_functions
+open Button
+open States
 
 let handle_click_team_transition st lst name team_list =
   let setting = build_setting name team_list in
