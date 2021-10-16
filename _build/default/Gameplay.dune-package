@@ -13,11 +13,16 @@
   (wrapped
    (main_module_name Gameplay)
    (modules
-    ((name Button) (obj_name gameplay__Button) (visibility public) (impl))
+    ((name Button)
+     (obj_name gameplay__Button)
+     (visibility public)
+     (impl)
+     (intf))
     ((name Common_functions)
      (obj_name gameplay__Common_functions)
      (visibility public)
-     (impl))
+     (impl)
+     (intf))
     ((name Main_pages)
      (obj_name gameplay__Main_pages)
      (visibility public)

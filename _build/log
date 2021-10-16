@@ -1,10 +1,10 @@
-# dune exec state_handler/play.exe
+# dune build
 # OCAMLPARAM: unset
 # Workspace root: /Users/calebkim/cs3110/project
-$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune674d4f.output 2> /dev/null
+$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dunecae68b.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune49ef07.output
+$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune582e8d.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -114,4 +114,7 @@ $ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/
 #      ; windows_unicode = false
 #      }
 #  }
-# Workspace root: /Users/calebkim/cs3110/project
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -bin-annot -I gameplay/.gameplay.objs/byte -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Gameplay -o gameplay/.gameplay.objs/byte/gameplay__Common_functions.cmo -c -impl gameplay/common_functions.ml)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -bin-annot -I gameplay/.gameplay.objs/byte -I /Users/calebkim/.opam/cs3110-project/lib/biniou -I /Users/calebkim/.opam/cs3110-project/lib/easy-format -I /Users/calebkim/.opam/cs3110-project/lib/graphics -I /Users/calebkim/.opam/cs3110-project/lib/yojson -I data_handling/.data.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Gameplay -o gameplay/.gameplay.objs/byte/gameplay__Transition.cmo -c -impl gameplay/transition.ml)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -a -o gameplay/gameplay.cma gameplay/.gameplay.objs/byte/gameplay.cmo gameplay/.gameplay.objs/byte/gameplay__Button.cmo gameplay/.gameplay.objs/byte/gameplay__States.cmo gameplay/.gameplay.objs/byte/gameplay__WelcomeScreen.cmo gameplay/.gameplay.objs/byte/gameplay__Common_functions.cmo gameplay/.gameplay.objs/byte/gameplay__Main_pages.cmo gameplay/.gameplay.objs/byte/gameplay__Transition.cmo)
+$ (cd _build/default && /Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -shared -linkall -I gameplay -o gameplay/gameplay.cmxs gameplay/gameplay.cmxa)

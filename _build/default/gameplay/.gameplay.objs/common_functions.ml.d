@@ -1,1 +1,1 @@
-gameplay/common_functions.ml: Button Graphics List States
+gameplay/common_functions.ml: Graphics States
