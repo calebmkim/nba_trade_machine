@@ -1,0 +1,27 @@
+(lang dune 2.9)
+(name Data)
+(library
+ (name Data)
+ (kind normal)
+ (archives (byte data.cma) (native data.cmxa))
+ (plugins (byte data.cma) (native data.cmxs))
+ (native_archives data.a)
+ (requires yojson)
+ (main_module_name Data)
+ (modes byte native)
+ (modules
+  (wrapped
+   (main_module_name Data)
+   (modules
+    ((name Json_translation)
+     (obj_name data__Json_translation)
+     (visibility public)
+     (impl)
+     (intf)))
+   (alias_module
+    (name Data)
+    (obj_name data)
+    (visibility public)
+    (kind alias)
+    (impl))
+   (wrapped true))))
