@@ -37,7 +37,8 @@
     ((name WelcomeScreen)
      (obj_name gameplay__WelcomeScreen)
      (visibility public)
-     (impl)))
+     (impl)
+     (intf)))
    (alias_module
     (name Gameplay)
     (obj_name gameplay)

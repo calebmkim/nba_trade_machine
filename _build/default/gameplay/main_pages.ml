@@ -63,11 +63,19 @@ let show_team_list team_list =
     (List.map get_button_text current_teams)
     finalize_button
 
+let valid_trade trade_map =
+  let teams_receiving_nobody =
+    trade_map |> List.map snd
+    |> List.filter (fun x -> List.length x = 0)
+  in
+  List.length teams_receiving_nobody = 0
+
 let handle_click_final_teams st team_list trade_map finish_button =
   let team_strings = List.map (fun x -> get_button_text x) team_list in
   try
     if button_clicked finish_button st.mouse_x st.mouse_y then
-      (TradeResults trade_map, trade_map)
+      if valid_trade trade_map then (TradeResults trade_map, trade_map)
+      else failwith "At least one team is not involved in the trade"
     else
       let team = find_clicked_button st team_list in
       (Roster (build_setting team team_strings, true), trade_map)

@@ -3,7 +3,8 @@ open States
 
 let open_graph_our_settings s =
   let _ = open_graph " 900x600" in
-  set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*"
+  ()
+(*set_font "-*-lucidatypewriter-*-*-*-*-*-*-*-*-*-150-*-*"*)
 
 let start_state max_y =
   open_graph_our_settings "";
