@@ -4,4 +4,7 @@
 run "eval $(opam env)" if it tells you to. 
 3) run "opam install -y utop odoc ounit2 qcheck 
 bisect_ppx menhir ocaml-lsp-server ocamlformat ocamlformat-rpc"
-4) 
+4)Run "opam install graphics" and if it asks to reconfigure things type "Y" 
+5) "opam install user-setup" if it asks you to 
+6) "opam install ANSITerminal odoc ocamlformat-rpc"
+7) run "make play" 
