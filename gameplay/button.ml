@@ -11,7 +11,9 @@ type t = {
 
 let build_button text ll l h = { text; ll; length = l; height = h }
 
-let button_clicked (b : t) x y =
+let is_button_clicked b st =
+  let x = st.mouse_x in
+  let y = st.mouse_y in
   x > fst b.ll
   && y > snd b.ll
   && x < fst b.ll + b.length
@@ -54,16 +56,24 @@ let print_name name cur_x cur_y max_horz =
   let () = moveto (fst new_point) (current_y ()) in
   build_button name new_point size_horz size_vert
 
-let make_button_list button_text_list =
-  let max_horz = get_max_size button_text_list in
+let make_button ?(max_horz = -1) button_text =
+  let mh =
+    if max_horz = -1 then get_size_horz button_text else max_horz
+  in
+  print_name button_text (current_x ()) (current_y ()) mh
+
+let make_button_list ?(max_horz = -1) button_text_list =
+  let mh =
+    if max_horz = -1 then get_max_size button_text_list else max_horz
+  in
   List.map
-    (fun x -> print_name x (current_x ()) (current_y ()) max_horz)
+    (fun x -> print_name x (current_x ()) (current_y ()) mh)
     button_text_list
 
 let find_clicked_button st button_list =
   try
     button_list
-    |> List.find (fun a -> button_clicked a st.mouse_x st.mouse_y)
+    |> List.find (fun a -> is_button_clicked a st)
     |> get_button_text
   with
   | _ -> failwith "No button clicked"

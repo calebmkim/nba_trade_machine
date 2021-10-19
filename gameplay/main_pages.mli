@@ -1,7 +1,6 @@
 open States
 
-val show_team_roster :
-  setting -> bool -> (string * string list) list -> state
+val show_roster : string -> bool -> state
 (**show_team_roster [settings teams_picked trade_map] is the state that
    the game should be in, given the user's next mouseclick and current
    [trade map], [settings] amd whether [teams_picked] or not. At the
@@ -17,15 +16,14 @@ val show_team_list : string list -> state
    Finally it displays a button allowing the user to go to finalize, or
    lock in, the teams that are currently selected to be in the trade. *)
 
-val show_final_teams :
-  (string * string list) list -> state * (string * string list) list
+val show_final_teams : (string * string list) list -> state
 (**[show_final_teams trade_map] is the tuple [(st, tm)] in which st is
    the state that the game should be in, given the user's next
    mouseclick and the [trade_map]. [tm] is the current trade_map for the
    game. It also displays the list of teams, and which players each team
    is receiving (according to [trade_map] on the graph. *)
 
-val show_player_trade : setting -> (string * string list) list -> state
+val show_player_trade : string -> (string * string list) list -> state
 (** [show_player trade setting trade_map] is the state that the game
     should be in given the user's next mouseclick, and the current
     [setting] and [trade_map]. It also shows the player's name, along
@@ -33,7 +31,7 @@ val show_player_trade : setting -> (string * string list) list -> state
     trade the player identified in the [identifier] field of the
     [setting]*)
 
-val show_player : setting -> state
+val show_player : string -> state
 (** [show_player trade setting] is the state that the game should be in
     given the user's next mouseclick, and the given [setting]. It also
     shows the player's name, along with his stats. *)
@@ -45,7 +43,7 @@ val show_trade_results : (string * string list) list -> state
     these names is clicked on, will reveal the altered roster, givne the
     [trade_map]. *)
 
-val show_new_roster :
+val show_altered_roster :
   string * string list * string list ->
   (string * string list) list ->
   state

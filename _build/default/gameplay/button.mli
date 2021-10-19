@@ -23,15 +23,18 @@ val print_name : string -> int -> int -> int -> t
     (x,y) such that the coordinates are
     [(x, y- vertical size of button)] *)
 
-val make_button_list : string list -> t list
+val make_button : ?max_horz:int -> string -> t
+(** [make_button] makes a singular button*)
+
+val make_button_list : ?max_horz:int -> string list -> t list
 (** [make_button_list lst] represents a button list, and the buttons are
     printed, starting from the current x and y, going down, creating a
     column. If there is no space left, start printing again from a new
     column, adjacent and to the right of the existing button collumn. *)
 
-val button_clicked : t -> int -> int -> bool
-(** [button_clicked t x y] is whether [t] has been clicked or not, given
-    the x and y coordinates of the click*)
+val is_button_clicked : t -> status -> bool
+(** [is_button_clicked t st] is whether [t] has been clicked or not,
+    given the status [st]*)
 
 val find_clicked_button : status -> t list -> string
 (** [find_clicked_button s lst] is the string of the button [b], out of

@@ -3,7 +3,7 @@ open Button
 open States
 open Common_functions
 
-let handle_click st = Teams []
+let handle_click st = Teams
 
 let show_welcome t =
   let _ = start_state (size_y ()) in

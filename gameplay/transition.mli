@@ -1,7 +1,7 @@
 open Button
 open States
 
-val team_options : setting -> state
+val team_transition : string -> trade_map -> state * trade_map
 (** [team_options setting] creates a graphics window and asks the user
     what they want to do with the team they have clicked, which
     corresponds to the identifier field of [setting]. Then once the user
@@ -10,7 +10,7 @@ val team_options : setting -> state
     state that the game should be in after accepting the user's mouse
     click. *)
 
-val player_transition : string -> (string * string list) list -> state
+val player_transition : string -> trade_map -> state * trade_map
 (** [player_transition name trade_map] creates a graphics window and
     asks you which team you want to trade player who has name [name] to,
     given the [trade_map]. The only possible options are teams that are

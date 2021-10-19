@@ -6,30 +6,30 @@ open Common_functions
 open Button
 open States
 
-let handle_click_team_transition st lst name team_list =
+let handle_click_team_transition st lst name team_list : 'a * 'b =
   let setting = build_setting name team_list in
   try
     let decision = find_clicked_button st lst in
-    if decision = "Examine Roster" then Roster (setting, false)
-    else if List.mem name team_list then Teams team_list
-    else Teams (name :: team_list)
+    if decision = "Examine Roster" then
+      ( Roster (get_name_setting setting, false),
+        make_trade_map team_list )
+    else if List.mem name team_list then
+      (Teams, make_trade_map team_list)
+    else (Teams, make_trade_map (name :: team_list))
   with
-  | _ -> Team_transition setting
+  | _ -> (Team_transition name, make_trade_map team_list)
 
-let team_options setting =
+let team_transition team_name trade_map =
   start_state (size_y ());
   let _ =
-    let messages =
-      [ "You have selected the " ^ get_name_setting setting ]
-    in
+    let messages = [ "You have selected the " ^ team_name ] in
     make_button_list messages
   in
   let opts = [ "Add team to trade"; "Examine Roster" ] in
   let option_list = make_button_list opts in
   let st = wait_next_event [ Button_down ] in
-  handle_click_team_transition st option_list
-    (get_name_setting setting)
-    (get_list_setting setting)
+  handle_click_team_transition st option_list team_name
+    (teams_in_trade trade_map)
 
 let get_possible_teams name trade_map =
   let team = get_team_of_player name in
@@ -48,9 +48,9 @@ let handle_click_player_transition st button_list name trade_map =
       (destination, new_incoming_players)
       :: List.remove_assoc destination trade_map
     in
-    FinalTeams new_trade_map
+    (FinalTeams, new_trade_map)
   with
-  | _ -> Player_transition name
+  | _ -> (Player_transition name, trade_map)
 
 let player_transition name trade_map =
   start_state (size_y ());
