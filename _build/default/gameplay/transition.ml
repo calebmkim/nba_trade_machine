@@ -21,24 +21,21 @@ let handle_click_team_transition st lst name team_list : 'a * 'b =
 
 let team_transition team_name trade_map =
   start_state (size_y ());
-  let _ =
-    let messages = [ "You have selected the " ^ team_name ] in
-    make_button_list messages
-  in
+  let _ = make_button_list [ "You have selected the " ^ team_name ] in
   let opts = [ "Add team to trade"; "Examine Roster" ] in
-  let option_list = make_button_list opts in
+  let option_buttons = make_button_list opts in
   let st = wait_next_event [ Button_down ] in
-  handle_click_team_transition st option_list team_name
+  handle_click_team_transition st option_buttons team_name
     (teams_in_trade trade_map)
 
-let get_possible_teams name trade_map =
-  let team = get_team_of_player name in
+let get_possible_teams player trade_map =
+  let team_of_player = get_team_of_player player in
   let team_list = List.map fst trade_map in
-  List.filter (fun x -> x != team) team_list
+  List.filter (fun x -> x != team_of_player) team_list
 
-let handle_click_player_transition st button_list name trade_map =
+let handle_click_player_transition st team_buttons name trade_map =
   try
-    let destination = find_clicked_button st button_list in
+    let destination = find_clicked_button st team_buttons in
     let old_incoming_players = List.assoc destination trade_map in
     let new_incoming_players =
       if List.mem name old_incoming_players then old_incoming_players
@@ -53,14 +50,16 @@ let handle_click_player_transition st button_list name trade_map =
   | _ -> (Player_transition name, trade_map)
 
 let player_transition name trade_map =
+  let max_horz =
+    get_max_size
+      (("Where would you like to trade " ^ name ^ " to?") :: team_names)
+  in
   start_state (size_y ());
   let _ =
-    let messages =
-      [ "Where would you like to trade " ^ name ^ " to?" ]
-    in
-    make_button_list messages
+    make_button ~max_horz
+      ("Where would you like to trade " ^ name ^ " to?")
   in
   let team_names = get_possible_teams name trade_map in
-  let button_list = make_button_list team_names in
+  let button_list = make_button_list ~max_horz team_names in
   let st = wait_next_event [ Button_down ] in
   handle_click_player_transition st button_list name trade_map

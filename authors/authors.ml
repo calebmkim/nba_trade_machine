@@ -5,5 +5,7 @@ type work_log = {
   pranay : float;
 }
 
-let hours_worked =
-  { caleb = 15.; tinsae = 15.; karan = 15.; pranay = 15. }
+let hours_worked_per_member =
+  { caleb = 15.; tinsae = 9.; karan = 9.; pranay = 9. }
+
+let hours_worked = 42.

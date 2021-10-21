@@ -12,6 +12,9 @@ type work_log = {
   pranay : float;
 }
 
-val hours_worked : work_log
+val hours_worked_per_member : work_log
 (** [hours_worked] is the hours worked for each team member, with the
-    order of the floats correspondign the the list of names *)
+    order of the floats corresponding the the list of names *)
+
+val hours_worked : float
+(** [hours_worked] is the total hours worked of all team members *)

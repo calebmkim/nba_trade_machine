@@ -1,3 +1,0 @@
-#require "yojson"
-#require "graphics"
-#use "data_handling/json_translation.ml"

@@ -19,12 +19,14 @@ let show_roster team_name are_teams_picked =
   let st = wait_next_event [ Button_down ] in
   handle_click_roster st player_list are_teams_picked
 
-let handle_click_teams st button_list cur_teams final_button =
+let handle_click_teams st all_teams_list teams_in_trade final_button =
   try
-    if is_button_clicked final_button st && List.length cur_teams >= 2
+    if
+      is_button_clicked final_button st
+      && List.length teams_in_trade >= 2
     then FinalTeams
     else
-      let team_name = find_clicked_button st button_list in
+      let team_name = find_clicked_button st all_teams_list in
       Team_transition team_name
   with
   | _ -> Teams
@@ -36,17 +38,15 @@ let show_team_list team_list =
     "Finalize Teams" :: "Teams Currently In Trade" :: teams
   in
   let max_horz = get_max_size string_lst in
-  let button_list = make_button_list ~max_horz teams in
+  let all_teams_list = make_button_list ~max_horz teams in
   let () = set_color blue in
   let _ = make_button_list ~max_horz [ "Teams Currently In Trade" ] in
-  let current_teams = make_button_list ~max_horz team_list in
+  let teams_in_trade = make_button_list ~max_horz team_list in
   let () = set_color red in
   let finalize_button = make_button ~max_horz "Finalize Teams" in
   let () = set_color black in
   let st = wait_next_event [ Button_down ] in
-  handle_click_teams st button_list
-    (List.map get_button_text current_teams)
-    finalize_button
+  handle_click_teams st all_teams_list teams_in_trade finalize_button
 
 let valid_trade trade_map =
   let teams_receiving_nobody =
@@ -66,7 +66,7 @@ let handle_click_final_teams st team_list trade_map finish_button =
   with
   | _ -> FinalTeams
 
-let get_max_size_overall trade_map =
+let get_largest_button_size trade_map =
   let combined_list =
     List.flatten (List.map (fun (x, y) -> x :: y) trade_map)
   in
@@ -86,12 +86,12 @@ let compare_team_tuples x y = if fst x < fst y then 1 else -1
 
 let show_final_teams trade_map =
   start_state (size_y ());
-  let max_horz = get_max_size_overall trade_map in
+  let max_horz = get_largest_button_size trade_map in
   (*Sort so that the teams appear in the same order each time*)
   let trade_map = List.sort compare_team_tuples trade_map in
   let team_list = List.map (print_trademap_pair max_horz) trade_map in
   set_color red;
-  let trade_button = List.hd (make_button_list [ "Execute Trade" ]) in
+  let trade_button = make_button ~max_horz "Execute Trade" in
   set_color black;
   let st = wait_next_event [ Button_down ] in
   handle_click_final_teams st team_list trade_map trade_button
