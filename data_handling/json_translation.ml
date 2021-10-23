@@ -6,8 +6,6 @@ type player = {
   stats : (string * float option) list;
 }
 
-(* tinsae test *)
-
 let season_info = Yojson.Basic.from_file "data/player_info.json"
 
 let team_ids =
@@ -42,15 +40,25 @@ let turn_to_float x =
       try to_float x with
       | _ -> failwith "expected int or float")
 
-let get_ows p =
+(** [get_stat p stat] is the [stat] for player [p] *)
+let get_stat p stat =
   try
     let p_info = p |> to_assoc in
     Some
       (p_info |> List.assoc "stats" |> to_list
       |> List.find (is_reg_season 2021)
-      |> to_assoc |> List.assoc "ows" |> turn_to_float)
+      |> to_assoc |> List.assoc stat |> turn_to_float)
   with
   | _ -> None
+
+(** [get_ows p] is the offensive win shares for player [p] *)
+let get_ows p = get_stat p "ows"
+
+(** [get_dws p] is the defensive win shares for player [p] *)
+let get_dws p = get_stat p "dws"
+
+(** [get_minutes_played p] is the minutes played by player [p] *)
+let get_minutes_played p = get_stat p "min"
 
 (**[make_player p] makes a player record for [p] if p is a player
    currently in the NBA. If not, then nothing return a .*)
@@ -61,7 +69,12 @@ let make_player p =
       {
         name = get_name p;
         team = p_team;
-        stats = [ ("ows", get_ows p) ];
+        stats =
+          [
+            ("ows", get_ows p);
+            ("dws", get_dws p);
+            ("min", get_minutes_played p);
+          ];
       }
   else None
 
@@ -117,12 +130,18 @@ let get_team_of_player p =
   with
   | _ -> failwith "Cannot find player"
 
-let ows p =
+let stat p stat_type =
   let player =
     try List.find (fun r -> r.name = p) player_record with
     | _ -> failwith "Cannot find player"
   in
-  player.stats |> List.assoc "ows"
+  player.stats |> List.assoc stat_type
+
+let ows p = stat p "ows"
+
+let dws p = stat p "dws"
+
+let minutes_played p = stat p "min"
 
 let player p =
   try List.find (fun x -> get_name x = p) players with
