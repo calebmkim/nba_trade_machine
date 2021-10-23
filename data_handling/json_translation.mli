@@ -16,7 +16,15 @@ val get_team_of_player : string -> string
    player*)
 
 val ows : string -> float option
-(**[ows p] is the ows for player names [p] for the 2021 season.
-   Requires: [p] is the name of a valid NBA player. *)
+(**[ows p] is the ows for player [p] for the 2021 season. Requires: [p]
+   is the name of a valid NBA player. *)
+
+val dws : string -> float option
+(**[dws p] is the dws for player [p] for the 2021 season. Requires: [p]
+   is the name of a valid NBA player. *)
+
+val minutes_played : string -> float option
+(**[minutes_played p] is the minutes played by player [p] for the 2021
+   season. Requires: [p] is the name of a valid NBA player. *)
 
 val player : string -> Yojson.Basic.t
