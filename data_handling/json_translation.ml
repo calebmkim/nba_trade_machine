@@ -6,6 +6,8 @@ type player = {
   stats : (string * float option) list;
 }
 
+(* tinsae test *)
+
 let season_info = Yojson.Basic.from_file "data/player_info.json"
 
 let team_ids =
