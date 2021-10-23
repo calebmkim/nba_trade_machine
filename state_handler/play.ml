@@ -39,6 +39,9 @@ let rec show_screen cur_state trade_map =
   | AlteredRoster team_name ->
       let st = show_altered_roster team_name in
       show_screen st trade_map
+  | Error (msg, prev_state) ->
+      let _ = show_error_message msg in
+      show_screen prev_state trade_map
 
 let main () =
   let _ = show_screen Welcome (make_trade_map []) in
