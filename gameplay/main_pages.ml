@@ -132,3 +132,5 @@ let show_altered_roster (name, old, incoming) =
   set_color black;
   let _ = wait_next_event [ Button_down ] in
   TradeResults
+
+let show_error_message msg = failwith "not implemented"

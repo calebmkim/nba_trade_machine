@@ -48,3 +48,5 @@ val show_altered_roster : string * string list * string list -> state
     roster, made up of the [reamining] and [incoming] players. The
     [reamining] players are shown in black and the [incoming] players
     are shown in red. *)
+
+val show_error_message : string -> unit

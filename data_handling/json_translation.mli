@@ -27,4 +27,7 @@ val minutes_played : string -> float option
 (**[minutes_played p] is the minutes played by player [p] for the 2021
    season. Requires: [p] is the name of a valid NBA player. *)
 
+val get_all_stats : string -> (string * float option) list
+(*TINSAE WRITE SPECIFICATIOLN*)
+
 val player : string -> Yojson.Basic.t
