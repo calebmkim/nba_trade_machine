@@ -1,1 +1,1 @@
-gameplay/common_functions.ml: Graphics States
+gameplay/common_functions.ml: Graphics Trademap

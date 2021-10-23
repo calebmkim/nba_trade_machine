@@ -1,6 +1,7 @@
-open States
+open Trademap
+open State
 
-val show_welcome : 'a -> state
-(**[show_welcome a] is the state the game should be in after showing the
-   welcome screen, and the user makes a click. Additionally it displays
-   a welcome message *)
+val show_welcome : unit -> state
+(**[show_welcome a] is the state the game should be in given the user's
+   click on the welcome screen. While waiting for the user's click, it
+   displays a welcome screen message. *)

@@ -1,7 +1,8 @@
 open Graphics
 open Button
-open States
+open Trademap
 open Common_functions
+open State
 
 let handle_click st = Teams
 

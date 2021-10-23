@@ -1,6 +1,7 @@
 open Graphics
-open States
+open Trademap
 
+(**[open_graph_our_settings] opens a 900x600 graph.*)
 let open_graph_our_settings s =
   let _ = open_graph " 900x600" in
   ()

@@ -1,1 +1,1 @@
-gameplay/transition.mli: Button States
+gameplay/transition.mli: Button State Trademap

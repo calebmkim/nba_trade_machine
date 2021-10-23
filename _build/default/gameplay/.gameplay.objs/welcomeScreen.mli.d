@@ -1,1 +1,1 @@
-gameplay/welcomeScreen.mli: States
+gameplay/welcomeScreen.mli: State Trademap

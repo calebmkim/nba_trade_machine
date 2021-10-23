@@ -77,3 +77,18 @@ let find_clicked_button st button_list =
     |> get_button_text
   with
   | _ -> failwith "No button clicked"
+
+let print_trademap_pair max_horz (team, players_recieving) =
+  set_color blue;
+  let team_button = make_button ~max_horz team in
+  let _ = make_button ~max_horz "will recieve: " in
+  set_color black;
+  let _ = make_button_list ~max_horz players_recieving in
+  team_button
+
+let compare_team_tuples x y = if fst x < fst y then 1 else -1
+
+let make_trademap_buttons trade_map max_horz =
+  (*Sort so that the teams appear in the same order each time*)
+  let tm = List.sort compare_team_tuples trade_map in
+  List.map (print_trademap_pair max_horz) tm
