@@ -1,4 +1,0 @@
-#require "yojson"
-#require "graphics"
-#use "data_handling/json_translation.ml"
-#use "data_handling/handle_team_stats.ml"
