@@ -17,7 +17,7 @@ let is_valid_destination destination trade_map =
 let get_valid_destinations player trade_map =
   let team_of_player = get_team_of_player player in
   let team_list = List.map fst trade_map in
-  List.filter (fun x -> x != team_of_player) team_list
+  List.filter (fun x -> x <> team_of_player) team_list
 
 let add_player_to_trade player destination trade_map =
   if is_valid_destination destination trade_map then
@@ -70,3 +70,23 @@ let change_rosters trade_map =
         failwith "Teams do not match when creating new rosters"
       else (team, old_players, new_players))
     removed_players_roster tm
+
+let players_losing team_name trade_map =
+  let departing_players =
+    List.map
+      (fun (team, players_recieving) ->
+        List.filter
+          (fun player -> get_team_of_player player = team_name)
+          players_recieving)
+      trade_map
+  in
+  List.flatten departing_players
+
+let players_acquiring team_name trade_map =
+  try
+    List.find
+      (fun (team, players_recieving) -> team_name = team)
+      trade_map
+    |> snd
+  with
+  | _ -> failwith "Team not in trade"

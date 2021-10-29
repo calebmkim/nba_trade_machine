@@ -46,4 +46,12 @@ val change_rosters :
    a team in the trademap. Each element is a tuple
    [(team, keeping, incoming)] in which [team] is the team name,
    [keeping] is the list of previous players that the team is keeping,
-   and [incoming] is the list of new players the team is bringin ing. *)
+   and [incoming] is the list of new players the team is bringing in. *)
+
+val players_losing : string -> trade_map -> string list
+(** [players_losing team_name t_map] is the list of players [team_name]
+    is losing given trademap [t_map]*)
+
+val players_acquiring : string -> trade_map -> string list
+(** [player_acquiring team_name t_map] is the list of players
+    [team_name] is acquiring given trademap [t_map]*)
