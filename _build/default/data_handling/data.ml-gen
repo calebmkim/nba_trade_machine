@@ -1,0 +1,2 @@
+(** @canonical Data.Json_translation *)
+module Json_translation = Data__Json_translation

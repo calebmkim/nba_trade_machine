@@ -43,6 +43,112 @@ let pp_list pp_elt lst =
   in
   "[" ^ pp_elts lst ^ "]"
 
+
+(** [get_roster_names_by_name_test name n expected_output] constructs an
+    OUnit test named [name] that asserts the quality of
+    [expected_output] with [get_roster_names_by_name n]. *)
+let get_roster_names_by_name_test
+    (name : string)
+    (n : string)
+    (expected_output : string list) =
+  name >:: fun _ ->
+  assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+    expected_output
+    (get_roster_names_by_name n)
+
+(** [get_roster_names_by_int_test name n expected_output] constructs an
+    OUnit test named [name] that asserts the quality of
+    [expected_output] with [get_roster_names_by_int n]. *)
+let get_roster_names_by_int_test
+    (name : string)
+    (n : int)
+    (expected_output : string list) : test =
+  name >:: fun _ ->
+  assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+    expected_output
+    (get_roster_names_by_int n)
+
+(** [team_names_test name expected_output] constructs an OUnit test
+    named [name] that asserts the quality of [expected_output] with
+    [team_names]. *)
+let team_names_test (name : string) (expected_output : string list) :
+    test =
+  name >:: fun _ ->
+  assert_equal ~cmp:cmp_set_like_lists ~printer:(pp_list pp_string)
+    expected_output team_names
+
+(** [get_team_of_player_test name n expected_output] constructs an OUnit
+    test named [name] that asserts the quality of [expected_output] with
+    [get_team_of_player n]. *)
+let get_team_of_player_test
+    (name : string)
+    (n : string)
+    (expected_output : string) : test =
+  name >:: fun _ ->
+  assert_equal expected_output (get_team_of_player n)
+    ~printer:String.escaped
+
+(** [ows_test name n expected_output] constructs an OUnit test named
+    [name] that asserts the quality of [expected_output] with [ows n]. *)
+let ows_test
+    (name : string)
+    (n : string)
+    (expected_output : float option) : test =
+  name >:: fun _ -> assert_equal expected_output (ows n)
+
+(** [dws_test name n expected_output] constructs an OUnit test named
+    [name] that asserts the quality of [expected_output] with [dws n]. *)
+let dws_test
+    (name : string)
+    (n : string)
+    (expected_output : float option) : test =
+  name >:: fun _ -> assert_equal expected_output (dws n)
+
+(** [minutes_played_test name n expected_output] constructs an OUnit
+    test named [name] that asserts the quality of [expected_output] with
+    [minutes_played n]. *)
+let minutes_played_test
+    (name : string)
+    (n : string)
+    (expected_output : float option) : test =
+  name >:: fun _ -> assert_equal expected_output (minutes_played n)
+
+(** [get_all_stats_test name n expected_output] constructs an OUnit test
+    named [name] that asserts the quality of [expected_output] with
+    [get_all_stats n]. *)
+let get_all_stats_test
+    (name : string)
+    (n : string)
+    (expected_output : (string * float option) list) =
+  name >:: fun _ ->
+  assert_equal ~cmp:cmp_set_like_lists expected_output (get_all_stats n)
+
+let json_tests =
+  [
+    get_roster_names_by_name_test "a" "Boston Celtics"
+      (get_roster_names_by_name "Boston Celtics");
+    get_roster_names_by_int_test "a" 0 (get_roster_names_by_int 0);
+    get_roster_names_by_int_test "b" 10 (get_roster_names_by_int 10);
+    get_roster_names_by_int_test "c" 29 (get_roster_names_by_int 29);
+    team_names_test "team_names" team_names;
+    get_team_of_player_test "a" "Kevin Love" "Cleveland Cavaliers";
+    get_team_of_player_test "b" "LeBron James" "Los Angeles Lakers";
+    get_team_of_player_test "c" "Jalen Johnson" "Atlanta Hawks";
+    ows_test "a" "Jalen Johnson" None;
+    ows_test "b" "LeBron James" (Some 3.);
+    ows_test "c" "Kevin Love" (Some 0.3);
+    dws_test "a" "Jalen Johnson" None;
+    dws_test "b" "LeBron James" (Some 2.6);
+    dws_test "c" "Kevin Love" (Some 0.6);
+    minutes_played_test "a" "Jalen Johnson" None;
+    minutes_played_test "b" "LeBron James" (Some 1504.);
+    minutes_played_test "c" "Kevin Love" (Some 622.);
+    get_all_stats_test "a" "Kevin Love" (get_all_stats "Kevin Love");
+    get_all_stats_test "b" "Jalen Johnson"
+      (get_all_stats "Jalen Johnson");
+    get_all_stats_test "c" "LeBron James" (get_all_stats "LeBron James");
+  ]
+  
 (*This marks the end of the portion of code that is not ours. From this
   point forward, all of this code is ours. *)
 
@@ -253,6 +359,6 @@ let team_stats_tests = List.flatten [ win_percent_tests ]
 let suite =
   "test suite for Project"
   >::: List.flatten
-         [ trademap_tests; trade_math_tests; team_stats_tests ]
+         [ trademap_tests; trade_math_tests; team_stats_tests;json_tests ]
 
 let _ = run_test_tt_main suite
