@@ -8,3 +8,4 @@ type state =
   | FinalTeams
   | TradeResults
   | AlteredRoster of (string * string list * string list)
+  | Error of (string * state)

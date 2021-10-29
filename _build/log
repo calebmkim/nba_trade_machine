@@ -1,10 +1,10 @@
 # dune exec state_handler/play.exe
 # OCAMLPARAM: unset
-# Workspace root: /Users/calebkim/cs3110/project
-$ /usr/local/bin/nproc > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune677ab4.output 2> /dev/null
-# Auto-detected concurrency: 8
+# Workspace root: /Users/sunilbaijal/FinalProj/final_project
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/y7/2lxcsx2x6pnf93zcdvysyxmw0000gn/T/dunef7bce2.output 2> /dev/null
+# Auto-detected concurrency: 4
 # disable binary cache
-$ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/zyz7jfm94m1ddqylzzgn7zs80000gn/T/dune472fb5.output
+$ /Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/y7/2lxcsx2x6pnf93zcdvysyxmw0000gn/T/dune6ee5a1.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -14,43 +14,45 @@ $ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/calebkim/.opam/cs3110-project/lib/toplevel"
-#  ; ocaml_bin = External "/Users/calebkim/.opam/cs3110-project/bin"
-#  ; ocaml = Ok External "/Users/calebkim/.opam/cs3110-project/bin/ocaml"
-#  ; ocamlc = External "/Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt"
+#      Some External "/Users/sunilbaijal/.opam/cs3110-2021fa/lib/toplevel"
+#  ; ocaml_bin = External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin"
+#  ; ocaml = Ok External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocaml"
+#  ; ocamlc = External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/calebkim/.opam/cs3110-project/bin/ocamlopt.opt"
+#      Ok External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/calebkim/.opam/cs3110-project/bin/ocamldep.opt"
+#      Ok External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/calebkim/.opam/cs3110-project/bin/ocamlmklib.opt"
+#      Ok External "/Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" : "/Users/calebkim/.opam/cs3110-project/lib"
+#        { "DUNE_OCAML_HARDCODED" :
+#            "/Users/sunilbaijal/.opam/cs3110-2021fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/calebkim/.opam/cs3110-project/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/calebkim/cs3110/project"
-#        ; "INSIDE_DUNE" : "/Users/calebkim/cs3110/project/_build/default"
+#            "/Users/sunilbaijal/.opam/cs3110-2021fa/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/sunilbaijal/FinalProj/final_project"
+#        ; "INSIDE_DUNE" :
+#            "/Users/sunilbaijal/FinalProj/final_project/_build/default"
 #        ; "MANPATH" :
-#            "/Users/calebkim/cs3110/project/_build/install/default/bin"
+#            "/Users/sunilbaijal/FinalProj/final_project/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/calebkim/cs3110/project/_build/install/default/lib"
+#            "/Users/sunilbaijal/FinalProj/final_project/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/calebkim/cs3110/project/_build/install/default/lib"
+#            "/Users/sunilbaijal/FinalProj/final_project/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/calebkim/cs3110/project/_build/install/default/lib/toplevel"
+#            "/Users/sunilbaijal/FinalProj/final_project/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/Users/calebkim/.opam/cs3110-project/lib" ]
+#  ; findlib_path = [ External "/Users/sunilbaijal/.opam/cs3110-2021fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
 #      ; standard_library_default =
-#          "/Users/calebkim/.opam/cs3110-project/lib/ocaml"
-#      ; standard_library = "/Users/calebkim/.opam/cs3110-project/lib/ocaml"
+#          "/Users/sunilbaijal/.opam/cs3110-2021fa/lib/ocaml"
+#      ; standard_library = "/Users/sunilbaijal/.opam/cs3110-2021fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
 #      ; c_compiler = "cc"
@@ -93,8 +95,8 @@ $ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-apple-darwin20.6.0"
-#      ; target = "x86_64-apple-darwin20.6.0"
+#      ; host = "x86_64-apple-darwin19.6.0"
+#      ; target = "x86_64-apple-darwin19.6.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -114,4 +116,8 @@ $ /Users/calebkim/.opam/cs3110-project/bin/ocamlc.opt -config > /var/folders/33/
 #      ; windows_unicode = false
 #      }
 #  }
-# Workspace root: /Users/calebkim/cs3110/project
+# Workspace root: /Users/sunilbaijal/FinalProj/final_project
+$ (cd _build/default && /Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamldep.opt -modules -impl gameplay/main_pages.ml) > _build/default/gameplay/.gameplay.objs/main_pages.ml.d
+$ (cd _build/default && /Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -I gameplay/.gameplay.objs/byte -I gameplay/.gameplay.objs/native -I /Users/sunilbaijal/.opam/cs3110-2021fa/lib/biniou -I /Users/sunilbaijal/.opam/cs3110-2021fa/lib/easy-format -I /Users/sunilbaijal/.opam/cs3110-2021fa/lib/graphics -I /Users/sunilbaijal/.opam/cs3110-2021fa/lib/yojson -I data_handling/.data.objs/byte -I data_handling/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Gameplay -o gameplay/.gameplay.objs/native/gameplay__Main_pages.cmx -c -impl gameplay/main_pages.ml)
+$ (cd _build/default && /Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -a -o gameplay/gameplay.cmxa gameplay/.gameplay.objs/native/gameplay.cmx gameplay/.gameplay.objs/native/gameplay__Button.cmx gameplay/.gameplay.objs/native/gameplay__Trademap.cmx gameplay/.gameplay.objs/native/gameplay__Common_functions.cmx gameplay/.gameplay.objs/native/gameplay__State.cmx gameplay/.gameplay.objs/native/gameplay__WelcomeScreen.cmx gameplay/.gameplay.objs/native/gameplay__Main_pages.cmx gameplay/.gameplay.objs/native/gameplay__Transition.cmx)
+$ (cd _build/default && /Users/sunilbaijal/.opam/cs3110-2021fa/bin/ocamlopt.opt -w +a-4-6-7-9-27-29-30-32..42-44-45-48-50-60-66-67 -warn-error -a+31 -g -o state_handler/play.exe /Users/sunilbaijal/.opam/cs3110-2021fa/lib/graphics/graphics.cmxa -I /Users/sunilbaijal/.opam/cs3110-2021fa/lib/graphics /Users/sunilbaijal/.opam/cs3110-2021fa/lib/easy-format/easy_format.cmxa /Users/sunilbaijal/.opam/cs3110-2021fa/lib/biniou/biniou.cmxa /Users/sunilbaijal/.opam/cs3110-2021fa/lib/yojson/yojson.cmxa data_handling/data.cmxa gameplay/gameplay.cmxa state_handler/.play.eobjs/native/dune__exe__Play.cmx)
