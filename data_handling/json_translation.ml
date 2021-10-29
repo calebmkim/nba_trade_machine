@@ -6,6 +6,7 @@ type player = {
   stats : (string * float option) list;
 }
 
+(* caleb *)
 let season_info = Yojson.Basic.from_file "data/player_info.json"
 
 let team_ids =
@@ -146,3 +147,6 @@ let minutes_played p = stat p "min"
 let player p =
   try List.find (fun x -> get_name x = p) players with
   | _ -> failwith "Cannot find player"
+
+(*TINSAE IMPLEMENT THIS*)
+let get_all_stats name = failwith "Not implemented"
