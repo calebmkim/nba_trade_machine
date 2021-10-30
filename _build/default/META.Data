@@ -1,0 +1,6 @@
+description = ""
+requires = "yojson"
+archive(byte) = "data.cma"
+archive(native) = "data.cmxa"
+plugin(byte) = "data.cma"
+plugin(native) = "data.cmxs"

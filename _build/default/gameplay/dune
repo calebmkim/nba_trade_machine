@@ -1,0 +1,4 @@
+(library
+ (name gameplay)
+ (public_name Gameplay)
+ (libraries graphics Data yojson))
