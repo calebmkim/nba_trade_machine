@@ -13,6 +13,11 @@
   (wrapped
    (main_module_name Data)
    (modules
+    ((name Handle_team_stats)
+     (obj_name data__Handle_team_stats)
+     (visibility public)
+     (impl)
+     (intf))
     ((name Json_translation)
      (obj_name data__Json_translation)
      (visibility public)

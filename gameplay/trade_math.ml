@@ -69,10 +69,6 @@ let win_differential team trade_map =
     (num_player_change team trade_map |> float_of_int)
     *. avg_player team
   in
-  (*let _ = print_endline ("correction: " ^ string_of_float correction)
-    in let wg = wins_gaining team trade_map in let wd = wins_departing
-    team trade_map in let _ = print_endline (string_of_float wg ^ " " ^
-    string_of_float wd) in*)
   wins_gaining team trade_map
   -. wins_departing team trade_map
   +. correction

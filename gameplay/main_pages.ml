@@ -5,6 +5,7 @@ open Common_functions
 open Button
 open Trademap
 open State
+open Trade_math
 
 (* type wrongclick = { | message of string; | prev of state; }
 
@@ -34,7 +35,8 @@ let handle_click_teams st all_teams_list teams_in_trade final_button =
   try
     if is_button_clicked final_button st then
       if List.length teams_in_trade >= 2 then FinalTeams
-      else Error ("Not enough Teams", Teams)
+      else
+        Error ("At least 2 teams must be involved in the trade", Teams)
     else
       let team_name = find_clicked_button st all_teams_list in
       Team_transition team_name
@@ -62,7 +64,9 @@ let handle_click_final_teams st team_list trade_map finish_button =
   try
     if is_button_clicked finish_button st then
       if valid_trade trade_map then TradeResults
-      else failwith "At least one team is not involved in the trade"
+      else
+        Error
+          ("Each team must be receiving at least 1 player", FinalTeams)
     else
       let team = find_clicked_button st team_list in
       Roster (team, true)
@@ -146,10 +150,19 @@ let handle_trade_results_click st team_buttons altered_rosters trade_map
   with
   | _ -> FinalTeams
 
+let win_difference_list trade_map =
+  List.map
+    (fun team ->
+      team ^ ": "
+      ^ (win_differential team trade_map |> string_of_float)
+      ^ " Wins")
+    (trade_map |> teams_in_trade)
+
 let show_trade_results trade_map =
   start_state (size_y ());
   let team_names = teams_in_trade trade_map in
   let team_buttons = make_button_list team_names in
+  let _ = make_button_list (win_difference_list trade_map) in
   let altered_rosters = change_rosters trade_map in
   let st = wait_next_event [ Button_down ] in
   handle_trade_results_click st team_buttons altered_rosters trade_map
@@ -169,7 +182,6 @@ let show_altered_roster (name, old, incoming) =
 
 let show_error_message msg =
   start_state (size_y ());
-  let _ = print_endline "gettgin to show error message" in
   let _ = make_button msg in
   let _ = wait_next_event [ Button_down ] in
   ()

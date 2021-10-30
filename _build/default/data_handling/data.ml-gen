@@ -1,2 +1,6 @@
+(** @canonical Data.Handle_team_stats *)
+module Handle_team_stats = Data__Handle_team_stats
+
+
 (** @canonical Data.Json_translation *)
 module Json_translation = Data__Json_translation

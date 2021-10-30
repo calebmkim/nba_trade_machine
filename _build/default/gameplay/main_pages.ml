@@ -5,6 +5,17 @@ open Common_functions
 open Button
 open Trademap
 open State
+open Trade_math
+
+(* type wrongclick = { | message of string; | prev of state; }
+
+   exception WrongClick of wrongclick *)
+(* let ex f = print_endline "Incorrect click. Taking you back to the
+   main page"; f exit 0 at_exit f *)
+
+let ex () =
+  print_endline "Incorrect click. Taking you back to the main page";
+  exit 0
 
 let handle_click_roster st player_list are_teams_picked =
   try
@@ -22,10 +33,10 @@ let show_roster team_name are_teams_picked =
 
 let handle_click_teams st all_teams_list teams_in_trade final_button =
   try
-    if
-      is_button_clicked final_button st
-      && List.length teams_in_trade >= 2
-    then FinalTeams
+    if is_button_clicked final_button st then
+      if List.length teams_in_trade >= 2 then FinalTeams
+      else
+        Error ("At least 2 teams must be involved in the trade", Teams)
     else
       let team_name = find_clicked_button st all_teams_list in
       Team_transition team_name
@@ -53,7 +64,9 @@ let handle_click_final_teams st team_list trade_map finish_button =
   try
     if is_button_clicked finish_button st then
       if valid_trade trade_map then TradeResults
-      else failwith "At least one team is not involved in the trade"
+      else
+        Error
+          ("Each team must be receiving at least 1 player", FinalTeams)
     else
       let team = find_clicked_button st team_list in
       Roster (team, true)
@@ -74,13 +87,34 @@ let show_final_teams trade_map =
   handle_click_final_teams st trademap_team_buttons trade_map
     trade_button
 
+(** [show_player_stat] returns the player statistics let
+    show_player_stat player_stat = start_state (size_y ()); let _ =
+    set_window_title "Player Statistics" in let button_list =
+    make_button_list player_stat in let () = set_color black in let _ =
+    make_button "Statistics of Player" (current_x ()) (current_y ())
+    max_horz*)
+
 let handle_player_click st player_name =
   let team_name = get_team_of_player player_name in
   Roster (team_name, false)
 
+let string_of_stat = function
+  | None -> "N/A"
+  | Some x -> string_of_float x
+
+let list_of_stats player_name =
+  let o_win_shares =
+    "Offensive Win Shares: " ^ string_of_stat (ows player_name)
+  in
+  let d_win_shares =
+    "Defensive Win Shares: " ^ string_of_stat (dws player_name)
+  in
+  [ o_win_shares; d_win_shares ]
+
 let show_player player_name =
   start_state (size_y ());
-  let _ = make_button player_name in
+  let name_stats_list = player_name :: list_of_stats player_name in
+  let _ = make_button_list name_stats_list in
   let st = wait_next_event [ Button_down ] in
   handle_player_click st player_name
 
@@ -90,8 +124,12 @@ let handle_player_trade_click st name trade_button trade_map =
 
 let show_player_trade player_name trade_map =
   start_state (size_y ());
-  let max_horz = get_max_size [ player_name; "Trade This Player" ] in
+  let player_stats = list_of_stats player_name in
+  let max_horz =
+    get_max_size ([ player_name; "Trade This Player" ] @ player_stats)
+  in
   let _ = make_button ~max_horz player_name in
+  let _ = make_button_list ~max_horz player_stats in
   let () = set_color red in
   let trade_button = make_button ~max_horz "Trade This Player" in
   let () = set_color black in
@@ -112,10 +150,19 @@ let handle_trade_results_click st team_buttons altered_rosters trade_map
   with
   | _ -> FinalTeams
 
+let win_difference_list trade_map =
+  List.map
+    (fun team ->
+      team ^ ": "
+      ^ (win_differential team trade_map |> string_of_float)
+      ^ " Wins")
+    (trade_map |> teams_in_trade)
+
 let show_trade_results trade_map =
   start_state (size_y ());
   let team_names = teams_in_trade trade_map in
   let team_buttons = make_button_list team_names in
+  let _ = make_button_list (win_difference_list trade_map) in
   let altered_rosters = change_rosters trade_map in
   let st = wait_next_event [ Button_down ] in
   handle_trade_results_click st team_buttons altered_rosters trade_map
@@ -133,4 +180,8 @@ let show_altered_roster (name, old, incoming) =
   let _ = wait_next_event [ Button_down ] in
   TradeResults
 
-let show_error_message msg = failwith "not implemented"
+let show_error_message msg =
+  start_state (size_y ());
+  let _ = make_button msg in
+  let _ = wait_next_event [ Button_down ] in
+  ()

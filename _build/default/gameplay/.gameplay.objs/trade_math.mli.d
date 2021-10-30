@@ -1,1 +1,1 @@
-gameplay/trade_math.mli:
+gameplay/trade_math.mli: Trademap
