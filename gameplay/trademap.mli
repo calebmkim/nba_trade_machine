@@ -55,3 +55,13 @@ val players_losing : string -> trade_map -> string list
 val players_acquiring : string -> trade_map -> string list
 (** [player_acquiring team_name t_map] is the list of players
     [team_name] is acquiring given trademap [t_map]*)
+
+val is_team_in_trade : string -> trade_map -> bool
+
+val add_team_to_trade : string -> trade_map -> trade_map
+
+val remove_team_from_trade : string -> trade_map -> trade_map
+
+val remove_player_from_trade : string -> trade_map -> trade_map
+
+val is_player_in_trade : string -> trade_map -> bool

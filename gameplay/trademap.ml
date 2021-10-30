@@ -90,3 +90,29 @@ let players_acquiring team_name trade_map =
     |> snd
   with
   | _ -> failwith "Team not in trade"
+
+let is_team_in_trade team_name trade_map =
+  List.exists (fun x -> x = team_name) (trade_map |> teams_in_trade)
+
+let add_team_to_trade team_name trade_map =
+  let team_list = teams_in_trade trade_map in
+  if List.mem team_name team_list then trade_map
+  else (team_name, []) :: trade_map
+
+let remove_team_from_trade team_name trade_map =
+  List.remove_assoc team_name trade_map
+
+let is_player_in_trade player_name trade_map =
+  List.exists
+    (fun (team, incoming_players) ->
+      List.mem player_name incoming_players)
+    trade_map
+
+let remove_player_from_trade player_name trade_map =
+  List.map
+    (fun (team, incoming_players) ->
+      ( team,
+        List.filter
+          (fun player -> player <> player_name)
+          incoming_players ))
+    trade_map

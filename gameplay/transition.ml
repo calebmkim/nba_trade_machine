@@ -12,25 +12,29 @@ open State
    click. [tm] is the new [trade_map] for the trade: if the user clicks
    the add team to trade button, then update trademap accordingly. If
    the user does anything else, no updates to the trademap are needed. *)
-let handle_click_team_transition st options team_name team_list =
+let handle_click_team_transition st options team_name trade_map =
   try
     let decision = find_clicked_button st options in
     if decision = "Examine Roster" then
-      (Roster (team_name, false), make_trade_map team_list)
-    else if List.mem team_name team_list then
-      (Teams, make_trade_map team_list)
-    else (Teams, make_trade_map (team_name :: team_list))
+      (Roster (team_name, false), trade_map)
+    else if decision = "Remove team from trade" then
+      (Teams, remove_team_from_trade team_name trade_map)
+    else (Teams, add_team_to_trade team_name trade_map)
   with
-  | _ -> (Team_transition team_name, make_trade_map team_list)
+  | _ -> (Team_transition team_name, trade_map)
 
 let team_transition team_name trade_map =
   start_state (size_y ());
   let _ = make_button_list [ "You have selected the " ^ team_name ] in
-  let opts = [ "Add team to trade"; "Examine Roster" ] in
+  let action =
+    if is_team_in_trade team_name trade_map then
+      "Remove team from trade"
+    else "Add team to trade"
+  in
+  let opts = [ action; "Examine Roster" ] in
   let option_buttons = make_button_list opts in
   let st = wait_next_event [ Button_down ] in
-  handle_click_team_transition st option_buttons team_name
-    (teams_in_trade trade_map)
+  handle_click_team_transition st option_buttons team_name trade_map
 
 let print_tm tm = tm |> get_all_strings |> List.map print_endline
 

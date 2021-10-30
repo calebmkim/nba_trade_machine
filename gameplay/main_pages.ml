@@ -119,19 +119,29 @@ let show_player player_name =
   handle_player_click st player_name
 
 let handle_player_trade_click st name trade_button trade_map =
-  if is_button_clicked trade_button st then Player_transition name
-  else FinalTeams
+  if is_button_clicked trade_button st then
+    let command = get_button_text trade_button in
+    if command = "Trade this Player" then
+      (Player_transition name, trade_map)
+    else (FinalTeams, remove_player_from_trade name trade_map)
+  else (FinalTeams, trade_map)
 
 let show_player_trade player_name trade_map =
   start_state (size_y ());
+  let remove_msg = "Remove Player from Trade" in
+  let add_msg = "Trade this Player" in
   let player_stats = list_of_stats player_name in
   let max_horz =
-    get_max_size ([ player_name; "Trade This Player" ] @ player_stats)
+    get_max_size ([ player_name; add_msg; remove_msg ] @ player_stats)
   in
   let _ = make_button ~max_horz player_name in
   let _ = make_button_list ~max_horz player_stats in
   let () = set_color red in
-  let trade_button = make_button ~max_horz "Trade This Player" in
+  let trade_msg =
+    if is_player_in_trade player_name trade_map then remove_msg
+    else add_msg
+  in
+  let trade_button = make_button ~max_horz trade_msg in
   let () = set_color black in
   let st = wait_next_event [ Button_down ] in
   handle_player_trade_click st player_name trade_button trade_map
