@@ -1,1 +1,0 @@
-let x_factor = "Hello my name is caleb"
