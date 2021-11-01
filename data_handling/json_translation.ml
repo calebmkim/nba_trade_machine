@@ -3,10 +3,27 @@ open Yojson.Basic.Util
 type player = {
   name : string;
   team : int;
+  salary : int;
   stats : (string * float option) list;
 }
 
 let season_info = Yojson.Basic.from_file "data/player_info.json"
+
+let salary_info =
+  Yojson.Basic.from_file "data/nbasalarydata.json" |> to_list
+
+let get_team_info team_name =
+  List.find
+    (fun json_data ->
+      let data = json_data |> to_assoc in
+      let name = List.assoc "Name" data |> to_string in
+      team_name = name)
+    salary_info
+
+let get_cap_differential team_name =
+  let info = get_team_info team_name |> to_assoc in
+  let diff = List.assoc "Luxury Tax Difference" info in
+  diff |> to_string |> int_of_string
 
 let team_ids =
   "data/team_ids.json" |> Yojson.Basic.from_file |> to_assoc
@@ -51,6 +68,11 @@ let get_stat p stat =
   with
   | _ -> None
 
+let get_salary p =
+  let p_info = p |> to_assoc in
+  List.assoc "contract" p_info
+  |> to_assoc |> List.assoc "amount" |> to_int
+
 (** [get_ows p] is the offensive win shares for player [p] *)
 let get_ows p = get_stat p "ows"
 
@@ -69,6 +91,7 @@ let make_player p =
       {
         name = get_name p;
         team = p_team;
+        salary = 0;
         stats =
           [
             ("ows", get_ows p);
@@ -156,3 +179,7 @@ let get_all_stats p =
     (List.find (fun player -> player.name = p) player_record).stats
   with
   | _ -> failwith "Cannot find player"
+
+let salary p =
+  let pl = player p in
+  get_salary pl * 1000

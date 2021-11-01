@@ -73,3 +73,27 @@ let win_differential team trade_map =
   -. wins_departing team trade_map
   +. correction
   |> ( *. ) games_per_season
+
+let get_total_salaries player_list =
+  List.fold_left (fun acc pl -> salary pl + acc) 0 player_list
+
+let get_incoming_salaries team trade_map =
+  let incoming_players = players_acquiring team trade_map in
+  get_total_salaries incoming_players
+
+let get_outgoing_salaries team trade_map =
+  let outgoing_players = players_acquiring team trade_map in
+  get_total_salaries outgoing_players
+
+let is_trade_viable team trade_map =
+  let incoming = get_incoming_salaries team trade_map in
+  let outgoing = get_outgoing_salaries team trade_map in
+  let net_change = incoming - outgoing in
+  let team_difference = get_cap_differential team in
+  let new_difference = team_difference - net_change in
+  if new_difference > 0 then true
+  else
+    let incoming_threshold =
+      (float_of_int outgoing *. 1.25) +. 100000.
+    in
+    float_of_int incoming <= incoming_threshold

@@ -32,3 +32,9 @@ val get_all_stats : string -> (string * float option) list
     season. Requires: [p] is the name of a valid NBA player.*)
 
 val player : string -> Yojson.Basic.t
+
+val salary : string -> int
+
+val get_cap_differential : string -> int
+(**[get_cap_differential n] is the cap differential of team [n].
+   Requires: [n] is the name of a valid NBA team*)
