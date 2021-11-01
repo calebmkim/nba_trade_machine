@@ -9,6 +9,8 @@ type t = {
 (**[button] represents a button with dimensions [length] by [height],
    lower left coordinate [ll] and has text [text]*)
 
+exception NoButtonClicked
+
 let build_button text ll l h = { text; ll; length = l; height = h }
 
 let is_button_clicked b st =
@@ -76,15 +78,15 @@ let find_clicked_button st button_list =
     |> List.find (fun a -> is_button_clicked a st)
     |> get_button_text
   with
-  | _ -> failwith "No button clicked"
+  | _ -> raise NoButtonClicked
 
 let print_trademap_pair max_horz (team, players_recieving) =
   set_color blue;
   let team_button = make_button ~max_horz team in
   let _ = make_button ~max_horz "will recieve: " in
   set_color black;
-  let _ = make_button_list ~max_horz players_recieving in
-  team_button
+  let incoming_players = make_button_list ~max_horz players_recieving in
+  (team_button, incoming_players)
 
 let compare_team_tuples x y = if fst x < fst y then 1 else -1
 

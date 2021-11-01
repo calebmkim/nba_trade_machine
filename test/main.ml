@@ -42,7 +42,8 @@ let pp_list pp_elt lst =
     loop 0 "" lst
   in
   "[" ^ pp_elts lst ^ "]"
-
+(*This marks the end of the portion of code that is not ours. From this
+  point forward, all of this code is ours. *)
 
 (** [get_roster_names_by_name_test name n expected_output] constructs an
     OUnit test named [name] that asserts the quality of
@@ -148,9 +149,6 @@ let json_tests =
       (get_all_stats "Jalen Johnson");
     get_all_stats_test "c" "LeBron James" (get_all_stats "LeBron James");
   ]
-  
-(*This marks the end of the portion of code that is not ours. From this
-  point forward, all of this code is ours. *)
 
 let float_approx_eq f1 f2 = Float.abs (f1 -. f2) <= 0.001
 
@@ -204,6 +202,14 @@ let tmap2_complete =
   |> add_player_to_trade "Paul George" "New Orleans Pelicans"
   |> add_player_to_trade "Christian Wood" "Los Angeles Clippers"
   |> add_player_to_trade "Josh Hart" "Los Angeles Clippers"
+
+let tmap_3 =
+  make_trade_map [ "New Orleans Pelicans"; "Dallas Mavericks" ]
+
+let tmap3_complte =
+  tmap_3
+  |> add_player_to_trade "Kristaps Porzingis" "New Orleans Pelicans"
+  |> add_player_to_trade "Josh Hart" "Dallas Mavericks"
 
 (** [test_teams_in_trade name tmap expected_output] constructs an OUnit
     test named [name] that asserts the equality of [expected_output]
@@ -359,6 +365,11 @@ let team_stats_tests = List.flatten [ win_percent_tests ]
 let suite =
   "test suite for Project"
   >::: List.flatten
-         [ trademap_tests; trade_math_tests; team_stats_tests;json_tests ]
+         [
+           trademap_tests;
+           trade_math_tests;
+           team_stats_tests;
+           json_tests;
+         ]
 
 let _ = run_test_tt_main suite

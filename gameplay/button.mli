@@ -3,6 +3,9 @@ open Graphics
 type t
 (**The type representing a button*)
 
+exception NoButtonClicked
+(**Exception that indicates that no button was clicked*)
+
 val get_max_size : string list -> int
 (** [get_max_size lst] is the maximum size (given the current text
     settings) in pixels, of the largest button that will be produced out
@@ -38,8 +41,12 @@ val find_clicked_button : status -> t list -> string
     the [lst] of buttons given, given the status [s]. If there is no
     button clicked, then raise Failure "No button clicked".*)
 
-val make_trademap_buttons : (string * string list) list -> int -> t list
+val make_trademap_buttons :
+  (string * string list) list -> int -> (t * t list) list
 (** [make_trademap_buttons tmap max_horz lst] is the button list
-    corresponding to the [tmap]. The only actual buttons are the
-    [team_names] but text is written below to indicate which players
-    each team is receiving (but these player names are not text).*)
+    corresponding to the [tmap]. The list is composed of
+    [(team, incoming players)] where [team] is the [team] button and
+    [incoming_players] are the list of buttons that correspond to the
+    incoming players are the [team_names] but text is written below to
+    indicate which players each team is receiving (but these player
+    names are not text).*)

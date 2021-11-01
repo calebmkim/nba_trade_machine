@@ -5,6 +5,7 @@ open Common_functions
 open Button
 open Trademap
 open State
+open Trade_math
 
 (* type wrongclick = { | message of string; | prev of state; }
 
@@ -34,12 +35,14 @@ let handle_click_teams st all_teams_list teams_in_trade final_button =
   try
     if is_button_clicked final_button st then
       if List.length teams_in_trade >= 2 then FinalTeams
-      else Error ("Not enough Teams", Teams)
+      else
+        Error ("At least 2 teams must be involved in the trade", Teams)
     else
-      let team_name = find_clicked_button st all_teams_list in
+      let all_team_buttons = all_teams_list @ teams_in_trade in
+      let team_name = find_clicked_button st all_team_buttons in
       Team_transition team_name
   with
-  | _ -> Teams
+  | NoButtonClicked -> Teams
 
 let show_team_list teams_in_trade =
   start_state (size_y ());
@@ -50,7 +53,7 @@ let show_team_list teams_in_trade =
   let max_horz = get_max_size string_lst in
   let all_teams_list = make_button_list ~max_horz teams in
   let () = set_color blue in
-  let _ = make_button_list ~max_horz [ "Teams Currently In Trade" ] in
+  let _ = make_button ~max_horz "Teams Currently In Trade" in
   let teams_in_trade = make_button_list ~max_horz teams_in_trade in
   let () = set_color red in
   let finalize_button = make_button ~max_horz "Finalize Teams" in
@@ -58,16 +61,25 @@ let show_team_list teams_in_trade =
   let st = wait_next_event [ Button_down ] in
   handle_click_teams st all_teams_list teams_in_trade finalize_button
 
-let handle_click_final_teams st team_list trade_map finish_button =
+let handle_click_final_teams st tmap_buttons trade_map finish_button =
+  let team_list, incoming_players_list = List.split tmap_buttons in
+  let players_list = List.flatten incoming_players_list in
   try
     if is_button_clicked finish_button st then
       if valid_trade trade_map then TradeResults
-      else failwith "At least one team is not involved in the trade"
+      else
+        Error
+          ("Each team must be receiving at least 1 player", FinalTeams)
     else
       let team = find_clicked_button st team_list in
       Roster (team, true)
   with
-  | _ -> FinalTeams
+  | NoButtonClicked -> (
+      try
+        let player_name = find_clicked_button st players_list in
+        Player (player_name, true)
+      with
+      | NoButtonClicked -> FinalTeams)
 
 let show_final_teams trade_map =
   start_state (size_y ());
@@ -82,13 +94,6 @@ let show_final_teams trade_map =
   let st = wait_next_event [ Button_down ] in
   handle_click_final_teams st trademap_team_buttons trade_map
     trade_button
-
-(** [show_player_stat] returns the player statistics let
-    show_player_stat player_stat = start_state (size_y ()); let _ =
-    set_window_title "Player Statistics" in let button_list =
-    make_button_list player_stat in let () = set_color black in let _ =
-    make_button "Statistics of Player" (current_x ()) (current_y ())
-    max_horz*)
 
 let handle_player_click st player_name =
   let team_name = get_team_of_player player_name in
@@ -115,19 +120,29 @@ let show_player player_name =
   handle_player_click st player_name
 
 let handle_player_trade_click st name trade_button trade_map =
-  if is_button_clicked trade_button st then Player_transition name
-  else FinalTeams
+  if is_button_clicked trade_button st then
+    let command = get_button_text trade_button in
+    if command = "Trade this Player" then
+      (Player_transition name, trade_map)
+    else (FinalTeams, remove_player_from_trade name trade_map)
+  else (FinalTeams, trade_map)
 
 let show_player_trade player_name trade_map =
   start_state (size_y ());
+  let remove_msg = "Remove Player from Trade" in
+  let add_msg = "Trade this Player" in
   let player_stats = list_of_stats player_name in
   let max_horz =
-    get_max_size ([ player_name; "Trade This Player" ] @ player_stats)
+    get_max_size ([ player_name; add_msg; remove_msg ] @ player_stats)
   in
   let _ = make_button ~max_horz player_name in
   let _ = make_button_list ~max_horz player_stats in
   let () = set_color red in
-  let trade_button = make_button ~max_horz "Trade This Player" in
+  let trade_msg =
+    if is_player_in_trade player_name trade_map then remove_msg
+    else add_msg
+  in
+  let trade_button = make_button ~max_horz trade_msg in
   let () = set_color black in
   let st = wait_next_event [ Button_down ] in
   handle_player_trade_click st player_name trade_button trade_map
@@ -144,12 +159,22 @@ let handle_trade_results_click st team_buttons altered_rosters trade_map
     in
     AlteredRoster team
   with
-  | _ -> FinalTeams
+  | NoButtonClicked -> FinalTeams
+  | Not_found -> FinalTeams
+
+let win_difference_list trade_map =
+  List.map
+    (fun team ->
+      team ^ ": "
+      ^ (win_differential team trade_map |> string_of_float)
+      ^ " Wins")
+    (trade_map |> teams_in_trade)
 
 let show_trade_results trade_map =
   start_state (size_y ());
   let team_names = teams_in_trade trade_map in
   let team_buttons = make_button_list team_names in
+  let _ = make_button_list (win_difference_list trade_map) in
   let altered_rosters = change_rosters trade_map in
   let st = wait_next_event [ Button_down ] in
   handle_trade_results_click st team_buttons altered_rosters trade_map
@@ -169,7 +194,6 @@ let show_altered_roster (name, old, incoming) =
 
 let show_error_message msg =
   start_state (size_y ());
-  let _ = print_endline "gettgin to show error message" in
   let _ = make_button msg in
   let _ = wait_next_event [ Button_down ] in
   ()

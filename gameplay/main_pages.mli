@@ -22,7 +22,7 @@ val show_final_teams : trade_map -> state
    mouseclick, it also displays the list of teams in the trade, and
    which players each team is receiving (according to [tmap]). *)
 
-val show_player_trade : string -> trade_map -> state
+val show_player_trade : string -> trade_map -> state * trade_map
 (** [show_player trade setting trade_map] is the state that the game
     should be in given the user's next mouseclick, and the current
     [setting] and [trade_map]. It also shows the player's name, along
