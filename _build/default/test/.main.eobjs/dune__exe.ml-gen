@@ -1,0 +1,14 @@
+(** @canonical Dune__exe.Button_test *)
+module Button_test = Dune__exe__Button_test
+
+
+(** @canonical Dune__exe.Json_test *)
+module Json_test = Dune__exe__Json_test
+
+
+(** @canonical Dune__exe.Main *)
+module Main = Dune__exe__Main
+
+
+(** @canonical Dune__exe.Trademap_test *)
+module Trademap_test = Dune__exe__Trademap_test
