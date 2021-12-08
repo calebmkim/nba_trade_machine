@@ -1,0 +1,6 @@
+description = ""
+requires = "Data owl"
+archive(byte) = "models.cma"
+archive(native) = "models.cmxa"
+plugin(byte) = "models.cma"
+plugin(native) = "models.cmxs"

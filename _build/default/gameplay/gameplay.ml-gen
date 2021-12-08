@@ -1,0 +1,38 @@
+(** @canonical Gameplay.Assistant_gm_math *)
+module Assistant_gm_math = Gameplay__Assistant_gm_math
+
+
+(** @canonical Gameplay.Assistant_gm_play *)
+module Assistant_gm_play = Gameplay__Assistant_gm_play
+
+
+(** @canonical Gameplay.Button *)
+module Button = Gameplay__Button
+
+
+(** @canonical Gameplay.Common_functions *)
+module Common_functions = Gameplay__Common_functions
+
+
+(** @canonical Gameplay.Main_pages *)
+module Main_pages = Gameplay__Main_pages
+
+
+(** @canonical Gameplay.State *)
+module State = Gameplay__State
+
+
+(** @canonical Gameplay.Trade_math *)
+module Trade_math = Gameplay__Trade_math
+
+
+(** @canonical Gameplay.Trademap *)
+module Trademap = Gameplay__Trademap
+
+
+(** @canonical Gameplay.Transition *)
+module Transition = Gameplay__Transition
+
+
+(** @canonical Gameplay.WelcomeScreen *)
+module WelcomeScreen = Gameplay__WelcomeScreen

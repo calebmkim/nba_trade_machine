@@ -1,0 +1,22 @@
+lib: [
+  "_build/install/default/lib/Models/META"
+  "_build/install/default/lib/Models/dune-package"
+  "_build/install/default/lib/Models/models.a"
+  "_build/install/default/lib/Models/models.cma"
+  "_build/install/default/lib/Models/models.cmi"
+  "_build/install/default/lib/Models/models.cmt"
+  "_build/install/default/lib/Models/models.cmx"
+  "_build/install/default/lib/Models/models.cmxa"
+  "_build/install/default/lib/Models/models.ml"
+  "_build/install/default/lib/Models/models__Per_model.cmi"
+  "_build/install/default/lib/Models/models__Per_model.cmt"
+  "_build/install/default/lib/Models/models__Per_model.cmx"
+  "_build/install/default/lib/Models/opam"
+  "_build/install/default/lib/Models/per_model.ml"
+]
+libexec: [
+  "_build/install/default/lib/Models/models.cmxs"
+]
+doc: [
+  "_build/install/default/doc/Models/README.md"
+]

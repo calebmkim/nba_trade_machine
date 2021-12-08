@@ -1,0 +1,23 @@
+(lang dune 2.9)
+(name Models)
+(library
+ (name Models)
+ (kind normal)
+ (archives (byte models.cma) (native models.cmxa))
+ (plugins (byte models.cma) (native models.cmxs))
+ (native_archives models.a)
+ (requires owl Data)
+ (main_module_name Models)
+ (modes byte native)
+ (modules
+  (wrapped
+   (main_module_name Models)
+   (modules
+    ((name Per_model) (obj_name models__Per_model) (visibility public) (impl)))
+   (alias_module
+    (name Models)
+    (obj_name models)
+    (visibility public)
+    (kind alias)
+    (impl))
+   (wrapped true))))
