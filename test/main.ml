@@ -217,7 +217,20 @@ let roster_tests =
     member_test "Enes Kanter not on Thunder" "Enes Kanter"
       "Oklahoma City Thunder" false;
     member_test "Devin Booker not on Blazers" "Devin Booker"
-      "Portnland Trail Blazers" false;
+      "Portland Trail Blazers" false;
+    member_test "Damian Lillard on Blazers" "Damian Lillard"
+      "Portland Trail Blazers" true;
+    member_test "Devin Booker on Suns" "Devin Booker" "Phoenix Suns"
+      true;
+    member_test "Paul George on Clippers" "Paul George"
+      "Los Angeles Clippers" true;
+    member_test "Chris Paul on Suns" "Chris Paul" "Phoenix Suns" true;
+    member_test "James Harden on Nets" "James Harden" "Brooklyn Nets"
+      true;
+    member_test "Jrue Holiday on Bucks" "Jrue Holiday" "Milwaukee Bucks"
+      true;
+    member_test "Jrue Holiday not on Clippers" "Jrue Holiday"
+      "Los Angeles Clippers" false;
   ]
 
 let ws_tests =
@@ -250,6 +263,10 @@ let min_played_tests =
       (Some 1814.);
     minutes_played_test "Collin Sexton mins" "Collin Sexton"
       (Some 2115.);
+    minutes_played_test "Paul George mins" "Paul George" (Some 1821.);
+    minutes_played_test "Chris Paul mins" "Chris Paul" (Some 2199.);
+    minutes_played_test "Jaylen Brown mins" "Jaylen Brown" (Some 1999.);
+    minutes_played_test "Danny Green mins" "Danny Green" (Some 1934.);
   ]
 
 let team_of_player_tests =
@@ -264,13 +281,26 @@ let team_of_player_tests =
       "Houston Rockets";
     get_team_of_player_test "Jimmy Butler Team" "Jimmy Butler"
       "Miami Heat";
+    get_team_of_player_test "Paul George Team" "Paul George"
+      "Los Angeles Clippers";
+    get_team_of_player_test "Devin Booker" "Devin Booker" "Phoenix Suns";
+    get_team_of_player_test "Trae Young Team" "Trae Young"
+      "Atlanta Hawks";
+    get_team_of_player_test "Kevin Durant Team" "Kevin Durant"
+      "Brooklyn Nets";
   ]
 
 let salary_tests =
   [
-    salary_test "D Russell Salary" "D'Angelo Russel" 30025000;
     salary_test "Terry Rozier Salary" "Terry Rozier" 17900000;
     salary_test "Christian Wood Salary" "Christian Wood" 13675000;
+    salary_test "Paul George Salary" "Paul George" 39350000;
+    salary_test "Chris Paul Salary" "Chris Paul" 30000000;
+    salary_test "Kyle Lowry Salary" "Kyle Lowry" 29000000;
+    salary_test "Joel Embiid Salary" "Joel Embiid" 31575000;
+    salary_test "Andrew Wiggins Salary" "Andrew Wiggins" 31575000;
+    salary_test "Jaylen Brown Salary" "Jaylen Brown" 25650000;
+    salary_test "Danny Green Salary" "Danny Green" 15375000;
   ]
 
 let pts_per_48_tests =
@@ -280,7 +310,6 @@ let pts_per_48_tests =
       (Some 14.42185);
     pts_per_48_test "Richaul Holmes pts/48" "Richaun Holmes"
       (Some 23.407);
-    pts_per_48_test "Scotttie Barnes pts/48" "Scottie Barnes" None;
   ]
 
 let per_tests =
@@ -290,6 +319,10 @@ let per_tests =
     per_test "KAT per" "Karl-Anthony Towns" (Some 23.1);
     per_test "Buddy Hield per" "Buddy Hield" (Some 12.8);
     per_test "Josh Giddey per" "Josh Giddey" None;
+    per_test "Pascal Siakam per" "Pascal Siakam" (Some 17.7);
+    per_test "CP3 per" "Chris Paul" (Some 21.4);
+    per_test "Keldon Johnson per" "Keldon Johnson" (Some 13.8);
+    per_test "Joe Harris per" "Joe Harris" (Some 14.1);
   ]
 
 let ast_pct_tests =
@@ -298,6 +331,10 @@ let ast_pct_tests =
     ast_pct_test "Kelly Oubre Ast Pct" "Kelly Oubre Jr." (Some 6.5);
     ast_pct_test "Zach Lavine Ast Pct" "Zach LaVine" (Some 23.4);
     ast_pct_test "Franz Wagner Ast Pct" "Franz Wagner" None;
+    ast_pct_test "Chris Paul Ast Pct" "Chris Paul" (Some 40.9);
+    ast_pct_test "Keldon Johnson Ast Pct" "Keldon Johnson" (Some 8.9);
+    ast_pct_test "Joe Harris Ast Pct" "Joe Harris" (Some 8.4);
+    ast_pct_test "Chris Paul Ast Pct" "Chris Paul" (Some 40.9);
   ]
 
 let reb_pct_tests =
@@ -306,6 +343,12 @@ let reb_pct_tests =
     reb_pct_test "K Nunn reb pct" "Kendrick Nunn" (Some 6.2);
     reb_pct_test "RJ Barrett reb pct" "R.J. Barrett" (Some 8.9);
     reb_pct_test "Davion Mitchell reb pct" "Davion Mitchell" None;
+    reb_pct_test "Kevin Love reb pct" "Kevin Love" (Some 16.7);
+    reb_pct_test "Draymond Green reb pct" "Draymond Green" (Some 12.1);
+    reb_pct_test "Ben Simmons reb pct" "Ben Simmons" (Some 12.2);
+    reb_pct_test "Luke Doncic reb pct" "Luka Doncic" (Some 12.8);
+    reb_pct_test "Jrue Holiday reb pct" "Jrue Holiday" (Some 7.4);
+    reb_pct_test "Kawhi Leonard reb pct" "Kawhi Leonard" (Some 10.7);
   ]
 
 let drtg_tests =
@@ -314,6 +357,11 @@ let drtg_tests =
     drtg_test "CP3 def rating" "Chris Paul" (Some 111.);
     drtg_test "Ricky Rubio def rating" "Ricky Rubio" (Some 115.);
     drtg_test "Zaire Williams def rating" "Ziaire Williams" None;
+    drtg_test "James Harden def rating" "James Harden" (Some 111.);
+    drtg_test "Anthony Davis def rating" "Anthony Davis" (Some 104.);
+    drtg_test "Jimmy Butler def rating" "Jimmy Butler" (Some 108.);
+    drtg_test "LeBron James def rating" "LeBron James" (Some 106.);
+    drtg_test "Paul George def rating" "Paul George" (Some 110.);
   ]
 
 let three_pt_pct_tests =
@@ -335,6 +383,7 @@ let per_ratio_tests =
 let json_tests =
   List.flatten
     [
+      salary_tests;
       roster_tests;
       ws_tests;
       min_played_tests;
@@ -402,7 +451,7 @@ let tmap2_complete =
 let tmap_3 =
   make_trade_map [ "New Orleans Pelicans"; "Dallas Mavericks" ]
 
-let tmap3_complte =
+let tmap3_complete =
   tmap_3
   |> add_player_to_trade "Kristaps Porzingis" "New Orleans Pelicans"
   |> add_player_to_trade "Josh Hart" "Dallas Mavericks"
@@ -455,6 +504,8 @@ let is_player_in_trade_tests =
   [
     test_is_player_in_trade "John Wall in tmap 2" "John Wall"
       tmap2_complete true;
+    test_is_player_in_trade "Lebron James not in tmap 2" "LeBron James"
+      tmap2_complete false;
     test_is_player_in_trade "Josh Hart in tmap 2" "Josh Hart"
       tmap2_complete true;
     test_is_player_in_trade "Kawhi Leonard not in tmap 2"
@@ -467,6 +518,8 @@ let is_player_in_trade_tests =
       tmap5_complete true;
     test_is_player_in_trade "Josh Gidden not in tmap 5" "Josh Giddey"
       tmap5_complete false;
+    test_is_player_in_trade "Jalen Suggs in tmap 5" "Jalen Suggs"
+      tmap5_complete true;
   ]
 
 let team_in_changed_rosters team altered_rosters =
@@ -597,12 +650,20 @@ let is_team_in_trade_tests =
   [
     test_is_team_in_trade "Thunder in tmap 5" "Oklahoma City Thunder"
       tmap5_complete true;
+    test_is_team_in_trade "Lakers not in tmap 5" "Los Angeles Lakers"
+      tmap5_complete false;
+    test_is_team_in_trade "Clippers not in tmap 2"
+      "Los Angeles Clippers" tmap2_complete true;
+    test_is_team_in_trade "Magic in tmap 5" "Orlando Magic"
+      tmap5_complete true;
     test_is_team_in_trade "Pacers not in tmap 5" "Indiana Pacers"
       tmap5_complete false;
     test_is_team_in_trade "Pelicans in tmap2" "New Orleans Pelicans"
       tmap2_complete true;
     test_is_team_in_trade "Mavs not in tmap2" "Dallas Mavericks"
       tmap2_complete false;
+    test_is_team_in_trade "Warriors in tmap1" "Golden State Warriors"
+      tmap1_complete true;
     test_is_team_in_trade "Celtics not in trade after removed"
       "Boston Celtics" removed_celtics_from_trade false;
   ]
@@ -664,9 +725,18 @@ let players_acquiring_tests =
     test_players_acquiring "tmap1 Warriors Acquiring"
       "Golden State Warriors" tmap1_complete
       [ "Alex Caruso"; "Udoka Azubuike" ];
-    test_players_acquiring "tmap1 Bulls Acquiring" "Chicago Bulls"
-      tmap1_complete
-      [ "Damion Lee"; "Eric Paschall" ];
+    test_players_acquiring "tmap2 Clippers Acquiring"
+      "Los Angeles Clippers" tmap2_complete
+      [ "Josh Hart"; "Christian Wood"; "John Wall" ];
+    test_players_acquiring "tmap2 Rockets Acquiring" "Houston Rockets"
+      tmap2_complete [ "Zion Williamson" ];
+    test_players_acquiring "tmap2 Pelicans Acquiring"
+      "New Orleans Pelicans" tmap2_complete [ "Paul George" ];
+    test_players_acquiring "tmap3 Mavs Acquiring" "Dallas Mavericks"
+      tmap3_complete [ "Josh Hart" ];
+    test_players_acquiring "tmap4 Trailblazers Acquiring"
+      "Portland Trail Blazers" tmap4_complete
+      [ "Al Horford"; "Jayson Tatum" ];
   ]
 
 (** [test_players_losing] constructs an OUnit test named [name] that
@@ -683,8 +753,13 @@ let players_losing_tests =
     test_players_losing "tmap1 Warriors losing" "Golden State Warriors"
       tmap1_complete
       [ "Damion Lee"; "Klay Thompson" ];
-    test_players_losing "tmap1 Bulls losing" "Chicago Bulls"
-      tmap1_complete [ "Alex Caruso" ];
+    test_players_losing "tmap2 Clippers losing" "Los Angeles Clippers"
+      tmap2_complete [ "Paul George" ];
+    test_players_losing "tmap3 Pelicans losing" "New Orleans Pelicans"
+      tmap3_complete [ "Josh Hart" ];
+    test_players_losing "tmap4 Celtics losing" "Boston Celtics"
+      tmap4_complete
+      [ "Jayson Tatum"; "Al Horford" ];
   ]
 
 (** [test_valid_trade name tmap expected_output] constructs an OUnit
@@ -702,6 +777,9 @@ let valid_trade_tests =
     test_valid_trade "Invalid Empty" tmap_1 false;
     test_valid_trade "invalid nonempty" invalid_tmap_ex false;
     test_valid_trade "complete valid tmap 4" tmap4_partial true;
+    test_valid_trade "Valid Trade" tmap2_complete true;
+    test_valid_trade "Valid Trade" tmap3_complete true;
+    test_valid_trade "Valid Trade" tmap4_complete true;
   ]
 
 let trademap_tests =
@@ -796,7 +874,14 @@ let win_percent_tests =
   [
     test_win_percent "Pacers win pct" "Indiana Pacers" 0.4722;
     test_win_percent "Nuggets win pct" "Denver Nuggets" 0.652777;
-    test_win_percent "Kings win pct" "Sacramento Kings" 0.430555;
+    test_win_percent "76ers win pct" "Philadelphia 76ers" 0.681;
+    test_win_percent "Bucks win pct" "Milwaukee Bucks" 0.639;
+    test_win_percent "Knicks win pct" "New York Knicks" 0.569;
+    test_win_percent "Hawks win pct" "Atlanta Hawks" 0.569;
+    test_win_percent "Heat win pct" "Miami Heat" 0.556;
+    test_win_percent "Celtics win pct" "Boston Celtics" 0.5;
+    test_win_percent "Wizards win pct" "Washington Wizards" 0.472;
+    test_win_percent "Bulls win pct" "Chicago Bulls" 0.431;
   ]
 
 (** [test_cap_differential name team expected_output] constructs an
@@ -814,6 +899,15 @@ let cap_diff_tests =
       ~-39252872;
     test_cap_differential "Jazz cap diff" "Utah Jazz" ~-16442231;
     test_cap_differential "Bulls cap diff" "Chicago Bulls" 4711958;
+    test_cap_differential "Heat cap diff" "Miami Heat" 436554;
+    test_cap_differential "Timberwolves cap diff"
+      "Minnesota Timberwolves" 872920;
+    test_cap_differential "Nuggets cap diff" "Denver Nuggets" 1397462;
+    test_cap_differential "Wizards cap diff" "Washington Wizards"
+      1685931;
+    test_cap_differential "Atlanta cap diff" "Atlanta Hawks" 1873652;
+    test_cap_differential "Pacers cap diff" "Indiana Pacers" 3083905;
+    test_cap_differential "Cavs cap diff" "Cleveland Cavaliers" 3262896;
   ]
 
 let team_stats_tests =
