@@ -1,7 +1,7 @@
 open Graphics
-open Main_pages
+open MainPages
 open Data
-open Json_translation
+open JsonTranslation
 open Button
 open Trademap
 

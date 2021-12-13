@@ -1,12 +1,12 @@
 open OUnit2
 open Data
-open Json_translation
-open Handle_salary_data
-open Handle_team_stats
+open JsonTranslation
+open HandleSalaryData
+open HandleTeamStats
 open Gameplay
 open Button
 open Trademap
-open Trade_math
+open Trademath
 
 (*TEST PLAN:
 

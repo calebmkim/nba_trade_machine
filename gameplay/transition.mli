@@ -1,6 +1,9 @@
+(** Functions that display when the screens are in transition during hte
+    Trade Machine. Could have been combined with MainPages. *)
+
 open Button
 open Trademap
-open Main_pages
+open MainPages
 
 val team_transition : string -> trade_map -> state * trade_map
 (** [team_options team trade_map] is the [(st, tm) ] tuple in which [st]

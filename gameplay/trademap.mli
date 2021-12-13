@@ -1,3 +1,5 @@
+(** Data structure to handle trades between NBA teams*)
+
 type trade_map
 (**the trade_map type represents the "trade_map" for the current trade.
    The trademap consists of a way of organizing the trade into the teams
@@ -12,17 +14,18 @@ val to_assoc_trademap : trade_map -> (string * string list) list
    made up of: a) players not on [team] but from b) on teams in [tmap] *)
 
 val teams_in_trade : trade_map -> string list
-(**[teams_int_trade tmap] is the list of teams involved in the trade*)
+(**[teams_int_trade tmap] is the list of teams involved in the trade
+   according to [tmap]*)
 
 val make_trade_map : string list -> trade_map
 (**[make_trade_map lst] is the trademap corresponding to each team in
    [lst] being involved in the trade, and each team recieving zero
-   players so fa. Requires: [lst] is made up of only valid NBA team
+   players so far. Requires: [lst] is made up of only valid NBA team
    names. *)
 
 val get_valid_destinations : string -> trade_map -> string list
 (**[get_valid_destinations player tmap] is the list of valid destnation
-   for [player] given [tmap]. Eac team in the list must be a team in
+   for [player] given [tmap]. Each team in the list must be a team in
    [tmap] but not be [player]'s current team. *)
 
 val add_player_to_trade : string -> string -> trade_map -> trade_map
@@ -32,8 +35,8 @@ val add_player_to_trade : string -> string -> trade_map -> trade_map
    that [player] to the [tmap] again. *)
 
 val valid_trade : trade_map -> bool
-(**[valid_trade] checks if the trade is valid by making sure each team
-   is recieiving at least 1 player. *)
+(**[valid_trade] is [true] if the trade is valid (i.e each team is
+   recieiving at least 1 player). [false] otherwise. *)
 
 val get_all_strings : trade_map -> string list
 (**[get_all_strings tmap] is the list of all teams and players currently
@@ -43,18 +46,21 @@ val get_all_strings : trade_map -> string list
 val change_rosters :
   trade_map -> (string * string list * string list) list
 (**[change_rosters tmap] is the lst in which each element corresponds to
-   a team in the trademap. Each element is a tuple
+   a team in the [tmap]. Each element is a tuple
    [(team, keeping, incoming)] in which [team] is the team name,
-   [keeping] is the list of previous players that the team is keeping,
-   and [incoming] is the list of new players the team is bringing in. *)
+   [keeping] is the list of previous players that the team is keeping
+   (this will be very close to the current roster usually), and
+   [incoming] is the list of new players the team is bringing in. *)
 
 val players_losing : string -> trade_map -> string list
-(** [players_losing team_name t_map] is the list of players [team_name]
-    is losing given trademap [t_map]*)
+(** [players_losing team_name tmap] is the list of players [team_name]
+    is losing given trademap [tmap]. Requires: [team] is a team in the
+    trade indicated by [tmap]*)
 
 val players_acquiring : string -> trade_map -> string list
 (** [player_acquiring team_name t_map] is the list of players
-    [team_name] is acquiring given trademap [t_map]*)
+    [team_name] is acquiring given trademap [t_map]. Requires: [team] is
+    a team in the trade indicated by [tmap]*)
 
 val is_team_in_trade : string -> trade_map -> bool
 (** [is_team_in_trade team tmap] is [true] if [team] is in [tmap] and
@@ -73,5 +79,5 @@ val remove_player_from_trade : string -> trade_map -> trade_map
     is not in [tmap] then simply return [tmap]*)
 
 val is_player_in_trade : string -> trade_map -> bool
-(** [is_player_in_trade player tmap] is [true] if [player] from [tmap].
+(** [is_player_in_trade player tmap] is [true] if [player] is in [tmap].
     If [player] is not in [tmap] then [false]*)

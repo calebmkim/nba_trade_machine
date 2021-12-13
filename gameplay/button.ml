@@ -1,4 +1,3 @@
-(*THIS On DECEMBER 8*)
 open Graphics
 
 type t = {

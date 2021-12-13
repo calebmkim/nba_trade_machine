@@ -1,5 +1,5 @@
 open Data
-open Json_translation
+open JsonTranslation
 open Graphics
 
 type trade_map = (string * string list) list

@@ -2,9 +2,9 @@ open Graphics
 open Gameplay
 open Trademap
 open Button
-open Main_pages
+open MainPages
 open Transition
-open Assistant_gm_play
+open AssistantGmPlay
 
 let rec show_screen cur_state trade_map =
   match cur_state with

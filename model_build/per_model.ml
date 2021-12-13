@@ -1,9 +1,9 @@
 open Owl
 open Data
 
-let per_lst = Json_translation.weighted_per_list
+let per_lst = JsonTranslation.weighted_per_list
 
-let win_pct_lst = Handle_team_stats.team_win_pct_list
+let win_pct_lst = HandleTeamStats.team_win_pct_list
 
 let per_arr = Array.of_list per_lst
 
