@@ -7,7 +7,7 @@ val show_roster : string -> bool -> state
    [are_teams_picked] or not. While waiting for the user's click, it
    displays the roster of [team_name]. *)
 
-val show_team_list : string list -> state
+val show_team_list : string list -> state * bool
 (**[show_team_list teams_in_trade]is the state that the game should be
    in, given the user's next mouseclick. While waiting for the
    mouseclick, It displays all 30 NBA teams, as well as displaying the
@@ -16,7 +16,7 @@ val show_team_list : string list -> state
    the user to go to finalize, or lock in, the teams that are currently
    selected to be in the trade. *)
 
-val show_final_teams : trade_map -> state
+val show_final_teams : trade_map -> state * bool
 (**[show_final_teams tmap] is the state that the game should be in,
    given the user's next mouseclick. While waiting for the user's
    mouseclick, it also displays the list of teams in the trade, and

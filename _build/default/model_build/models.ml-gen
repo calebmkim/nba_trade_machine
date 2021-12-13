@@ -1,2 +1,0 @@
-(** @canonical Models.Per_model *)
-module Per_model = Models__Per_model

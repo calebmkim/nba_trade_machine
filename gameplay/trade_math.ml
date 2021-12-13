@@ -3,8 +3,6 @@ open Json_translation
 open Trademap
 open Handle_team_stats
 open Handle_salary_data
-open Models
-open Per_model
 
 let min_per_game = 48.
 
@@ -100,9 +98,12 @@ let get_outgoing_salaries team trade_map =
 let is_trade_viable team trade_map =
   let incoming = get_incoming_salaries team trade_map in
   let outgoing = get_outgoing_salaries team trade_map in
-  let net_change = incoming - outgoing in
+  (* for debugging purposes: let _ = print_endline team in let _ =
+     print_endline (string_of_int incoming) in let _ = print_endline
+     (string_of_int outgoing) in*)
+  let net_change = outgoing - incoming in
   let team_difference = get_cap_differential team in
-  let new_difference = team_difference - net_change in
+  let new_difference = team_difference + net_change in
   if new_difference > 0 then true
   else
     let incoming_threshold =
@@ -123,11 +124,31 @@ let get_new_roster team trade_map =
   in
   removed_outgoing @ incoming_players
 
+let per_slope : float option ref = ref None
+
+let () =
+  let ic = open_in "per_slope.dat" in
+  try
+    let line = input_line ic in
+    close_in ic;
+    (* read line, discard \n *)
+    per_slope := Some (float_of_string line)
+    (* close the input channel *)
+  with
+  | e -> failwith "Couldn't get per_slope"
+(* exit with error: files are closed but channels are not flushed *)
+
+let get_per_slope () =
+  match !per_slope with
+  | None ->
+      failwith "The model isn't built yet. Try running make per_build"
+  | Some x -> x
+
 let win_diff_per team trade_map =
   let og_roster = get_roster_names_by_name team in
   let new_roster = get_new_roster team trade_map in
   let og_per_avg = Json_translation.get_per_ratio og_roster in
   let new_per_avg = Json_translation.get_per_ratio new_roster in
   (new_per_avg -. og_per_avg)
-  *. (Per_model.per_slope /. 100.)
+  *. (get_per_slope () /. 100.)
   *. games_per_season

@@ -3,7 +3,13 @@ open Json_translation
 open Trade_math
 open Trademap
 
-type attribute = ThreePoint
+type attribute =
+  | ThreePoint
+  | Rebound
+  | Defense
+  | Playmaking
+  | Scoring
+  | Athleticism
 
 exception NoMatch of string
 
@@ -42,19 +48,16 @@ let does_trade_work p1 p2 =
 let on_different_teams p1 p2 =
   get_team_of_player p1 <> get_team_of_player p2
 
-let make_3pt_trade p1 =
+let trade_player p attribute_list =
+  let leaders = get_leaders attribute_list in
   let new_player =
     try
       List.find
         (fun p' ->
-          if on_different_teams p1 p' then does_trade_work p1 p'
+          if on_different_teams p p' then does_trade_work p p'
           else false)
-        Json_translation.three_pt_leaders
+        leaders
     with
     | Not_found -> raise (NoMatch "Couldn't find trading partner")
   in
-  make_swap_tmap p1 new_player
-
-let trade_player p attribute =
-  match attribute with
-  | ThreePoint -> failwith ""
+  make_swap_tmap p new_player

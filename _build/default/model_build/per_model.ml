@@ -14,3 +14,17 @@ let per_mat = Mat.of_array per_arr 1 30
 let win_pct_mat = Mat.of_array win_pct_arr 1 30
 
 let per_constant, per_slope = Linalg.D.linreg per_mat win_pct_mat
+
+let file = "per_slope.dat"
+
+let slope = string_of_float per_slope
+
+let () =
+  (* Write message to file *)
+  let oc = open_out file in
+  (* create or truncate file, return channel *)
+  Printf.fprintf oc "%s\n" slope;
+  (* write something *)
+  close_out oc
+
+(* flush and close the channel *)

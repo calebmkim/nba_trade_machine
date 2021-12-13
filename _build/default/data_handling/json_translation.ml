@@ -52,13 +52,33 @@ let turn_to_float x =
       | _ -> failwith "expected int or float")
 
 (** [get_stat p stat] is the [stat] for player [p] *)
+let get_rating p stat =
+  try
+    let p_info = p |> to_assoc in
+    match p_info |> List.assoc "ratings" |> to_list with
+    | [] -> None
+    | h :: t ->
+        let rtng = h |> to_assoc |> List.assoc stat in
+        Some (rtng |> to_int |> float_of_int)
+  with
+  | _ -> None
+
+let get_2021_season stat_lst =
+  match List.filter (is_reg_season 2021) stat_lst with
+  | [] -> failwith "Did not player last year"
+  | [ h ] -> h
+  | [ h1; h2 ] ->
+      let min1 = h1 |> to_assoc |> List.assoc "min" in
+      let min2 = h2 |> to_assoc |> List.assoc "min" in
+      if min1 >= min2 then h1 else h2
+  | _ -> failwith "too many teams"
+
 let get_stat p stat =
   try
     let p_info = p |> to_assoc in
     Some
-      (p_info |> List.assoc "stats" |> to_list
-      |> List.find (is_reg_season 2021)
-      |> to_assoc |> List.assoc stat |> turn_to_float)
+      (p_info |> List.assoc "stats" |> to_list |> get_2021_season
+     |> to_assoc |> List.assoc stat |> turn_to_float)
   with
   | _ -> None
 
@@ -99,6 +119,51 @@ let get_3p_made p = get_stat p "tp"
 (** [get_3p_attempted p] is the 3 pointers attempted of player [p] *)
 let get_3p_attempted p = get_stat p "tpa"
 
+(** [get_reb_pct] is the rebounding percentage of player [p] *)
+let get_reb_pct p = get_stat p "trbp"
+
+(** [get_reb_rating] is the rebounding rating of player [p] *)
+let get_reb_rating p = get_rating p "reb"
+
+(** [get_off_iq] is the offensive iq rating of player [p] *)
+let get_off_iq p = get_rating p "oiq"
+
+(** [get_ast_pct] is the assist percent of player [p] *)
+let get_ast_pct p = get_stat p "astp"
+
+(** [get_ast_pct] is the assist percent of player [p] *)
+let get_pts p = get_stat p "pts"
+
+let get_pts_per_48 p =
+  match (get_pts p, get_minutes_played p) with
+  | None, _ -> None
+  | _, None -> None
+  | Some p, Some m -> Some (p /. m *. 48.)
+
+(** [get_drtg] is the assist percent of player [p] *)
+let get_drtg p = get_stat p "drtg"
+
+(** [get_jump] is the jump rating of player [p] *)
+let get_jump p = get_rating p "jmp"
+
+(** [get_spd] is the speed rating of player [p] *)
+let get_speed p = get_rating p "spd"
+
+let get_athleticism p =
+  match (get_rating p "jmp", get_rating p "spd") with
+  | None, _ -> None
+  | _, None -> None
+  | Some j, Some s -> Some (j +. s)
+
+let get_reb_overall p =
+  match (get_stat p "trbp", get_reb_rating p) with
+  | None, None -> None
+  | None, Some x -> None
+  | Some x, None -> None
+  | Some pct, Some rtng ->
+      let combined = ((pct -. 10.) /. 10.) +. ((rtng -. 20.) /. 70.) in
+      Some (combined /. 2.)
+
 (** [get_player name] is the yojson version of player [p] *)
 let get_player name =
   try List.find (fun x -> get_name x = name) players with
@@ -136,7 +201,32 @@ let three_pt_pct p =
   let pl = get_player p in
   get_3_pct pl
 
+let reb_pct p = stat p "trbp"
+
+let reb_rating p =
+  let pl = get_player p in
+  get_reb_pct pl
+
+let off_iq p =
+  let pl = get_player p in
+  get_off_iq pl
+
+let ast_pct p = stat p "astp"
+
 let per p = stat p "per"
+
+let drtg p = stat p "drtg"
+
+let pts_per_48 p =
+  let pl = get_player p in
+  get_pts_per_48 pl
+
+let ath p =
+  let pl = get_player p in
+  match (get_speed pl, get_jump pl) with
+  | None, _ -> None
+  | _, None -> None
+  | Some spd, Some jmp -> Some ((jmp +. spd) /. 2.)
 
 let get_roster_names_by_name n =
   List.filter
@@ -211,20 +301,60 @@ let get_team_of_player p =
   with
   | _ -> failwith "Cannot find player"
 
-let get_all_stats p = []
-
 let at_least_3pt_makes n p =
   match get_3p_made p with
   | None -> false
   | Some x -> x >= n
 
-let three_pt_leaders =
+let at_least_min_played n p =
+  match get_minutes_played p with
+  | None -> false
+  | Some x -> x >= n
+
+let div_float x y = float_of_int x /. float_of_int y
+
+let ( //. ) = div_float
+
+let get_percentile elt lst =
+  let rec index_helper elt lst idx =
+    match lst with
+    | [] -> None
+    | h :: t ->
+        if h = elt then Some idx else index_helper elt t (idx + 1)
+  in
+  match index_helper elt lst 0 with
+  | None -> None
+  | Some idx ->
+      Some
+        (let plc = idx //. List.length lst in
+         (plc *. -1.) +. 1.)
+
+let convert_float_opt = function
+  | None -> 0.
+  | Some x -> x
+
+let add_float x y = x +. convert_float_opt y
+
+let get_total_percentile elt total_lst =
+  List.fold_left
+    (fun acc stat_lst ->
+      let pct = get_percentile elt stat_lst in
+      add_float acc pct)
+    0. total_lst
+
+let elligible_players =
   players
   |> List.filter (fun x ->
          let tid = get_team x in
-         tid >= 0 && tid <= 29 && at_least_3pt_makes 82. x)
+         tid >= 0 && tid <= 29 && at_least_min_played 984. x)
+
+let elligible_player_names =
+  elligible_players |> List.map (fun x -> get_name x)
+
+let get_leaders f =
+  elligible_players
   |> List.sort (fun x y ->
-         match (get_3_pct x, get_3_pct y) with
+         match (f x, f y) with
          | None, None -> 0
          | None, Some x -> -1
          | Some x, None -> 1
@@ -232,3 +362,59 @@ let three_pt_leaders =
              if x > y then 1 else if x < y then ~-1 else 0)
   |> List.map (fun x -> get_name x)
   |> List.rev
+
+let three_pt_pct_leaders = get_leaders get_3_pct
+
+let three_pt_made_leaders = get_leaders get_3p_made
+
+let reb_pct_leaders = get_leaders get_reb_pct
+
+let ast_pct_leaders = get_leaders get_ast_pct
+
+let pts_per_48_leaders = get_leaders get_pts_per_48
+
+let athl_leaders = get_leaders get_athleticism
+
+(*I don't want to reverse this list*)
+let def_rating_leaders =
+  elligible_players
+  |> List.sort (fun x y ->
+         match (get_drtg x, get_drtg y) with
+         | None, None -> 0
+         | None, Some x -> -1
+         | Some x, None -> 1
+         | Some x, Some y ->
+             if x > y then 1 else if x < y then ~-1 else 0)
+  |> List.map (fun x -> get_name x)
+
+let overall_attributes_leaders lst_of_leaders =
+  List.sort
+    (fun x y ->
+      let x_pct, y_pct =
+        ( get_total_percentile x lst_of_leaders,
+          get_total_percentile y lst_of_leaders )
+      in
+      if x_pct > y_pct then 1 else if x_pct < y_pct then ~-1 else 0)
+    elligible_player_names
+  |> List.rev
+
+let three_pt_leaders =
+  overall_attributes_leaders
+    [ three_pt_pct_leaders; three_pt_made_leaders ]
+
+let list_of_attributes attribute =
+  match attribute with
+  | "3 Point Shooting" -> three_pt_leaders
+  | "Defense" -> def_rating_leaders
+  | "Rebounding" -> reb_pct_leaders
+  | "Playmaking" -> ast_pct_leaders
+  | "Scoring" -> pts_per_48_leaders
+  | "Athleticism" -> athl_leaders
+  | _ -> failwith ("Couldn't interpret attribute: " ^ attribute)
+
+let attributes_to_leaders attributes =
+  List.map list_of_attributes attributes
+
+let get_leaders att_list =
+  let lst = attributes_to_leaders att_list in
+  overall_attributes_leaders lst

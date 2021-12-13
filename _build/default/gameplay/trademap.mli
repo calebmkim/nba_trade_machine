@@ -57,13 +57,21 @@ val players_acquiring : string -> trade_map -> string list
     [team_name] is acquiring given trademap [t_map]*)
 
 val is_team_in_trade : string -> trade_map -> bool
+(** [is_team_in_trade team tmap] is [true] if [team] is in [tmap] and
+    [false] otherwise*)
 
 val add_team_to_trade : string -> trade_map -> trade_map
+(** [add_team_to_trade team tmap] adds [team] to [tmap]. If [team] is
+    already in [tmap] then simply return [tmap]*)
 
 val remove_team_from_trade : string -> trade_map -> trade_map
+(** [remove_team_from_trade team tmap] removes [team] from [tmap]. If
+    [team] is not in [tmap] then simply return [tmap]*)
 
 val remove_player_from_trade : string -> trade_map -> trade_map
+(** [remove_player_from_trade] removes [player] from [tmap]. If [player]
+    is not in [tmap] then simply return [tmap]*)
 
 val is_player_in_trade : string -> trade_map -> bool
-
-val print_tmap : trade_map -> unit
+(** [is_player_in_trade player tmap] is [true] if [player] from [tmap].
+    If [player] is not in [tmap] then [false]*)

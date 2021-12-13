@@ -6,7 +6,7 @@
  (archives (byte gameplay.cma) (native gameplay.cmxa))
  (plugins (byte gameplay.cma) (native gameplay.cmxs))
  (native_archives gameplay.a)
- (requires graphics Data yojson Models)
+ (requires graphics Data yojson)
  (main_module_name Gameplay)
  (modes byte native)
  (modules
@@ -21,7 +21,8 @@
     ((name Assistant_gm_play)
      (obj_name gameplay__Assistant_gm_play)
      (visibility public)
-     (impl))
+     (impl)
+     (intf))
     ((name Button)
      (obj_name gameplay__Button)
      (visibility public)

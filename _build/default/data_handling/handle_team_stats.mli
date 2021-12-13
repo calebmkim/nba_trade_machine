@@ -4,4 +4,5 @@ val get_win_percentage : string -> float
    NBA team name. *)
 
 val team_win_pct_list : float list
-(**[team_win_pct_lst] is the list of win pcts of each team*)
+(**[team_win_pct_lst] is the list of win pcts of each team, ordered by
+   alphabetical order*)

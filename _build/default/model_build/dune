@@ -1,5 +1,4 @@
-(library
- (name models)
- (public_name Models)
+(executable
+ (name per_model)
  (libraries owl Data))
 
