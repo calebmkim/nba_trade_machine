@@ -1,1 +1,1 @@
-gameplay/main_pages.mli: State Trademap
+gameplay/main_pages.mli: Trademap

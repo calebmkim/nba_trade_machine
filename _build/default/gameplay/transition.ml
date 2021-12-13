@@ -2,10 +2,8 @@ open Graphics
 open Main_pages
 open Data
 open Json_translation
-open Common_functions
 open Button
 open Trademap
-open State
 
 (**[handle_click_team_transition st options name team_list] is the
    ([st, tm]) tuple in which [st] is the current [st] given the user's

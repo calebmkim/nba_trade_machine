@@ -1,10 +1,10 @@
 open Data
 open Json_translation
 open Graphics
-open State
 open Button
 open Assistant_gm_math
 open Trademap
+open Main_pages
 
 exception TooManyAttributes
 
@@ -28,7 +28,7 @@ let handle_click_teams_gm st team_list back_button =
     | NoButtonClicked -> (GMTeams, false)
 
 let show_teams_gm () =
-  Common_functions.start_state (size_y ());
+  Main_pages.start_state (size_y ());
   let msg = "Pick a team to manage" in
   let teams = Json_translation.team_names in
   let max_horz = get_max_size (msg :: teams) in
@@ -100,7 +100,7 @@ let handle_click_attributes
           else (GMAttributes team, cur_attributes))
 
 let pick_attributes team cur_attributes =
-  Common_functions.start_state (size_y ());
+  Main_pages.start_state (size_y ());
   let msg = "Please Select the " ^ team ^ "'s needs. Pick at most 3." in
   let current_attributes_msg =
     "Currently, here are the needs you identified"
@@ -143,7 +143,7 @@ let handle_click_gm_team status player_list team_name back_button =
   | NoButtonClicked -> GMRoster team_name
 
 let show_gm_team attributes team_name =
-  Common_functions.start_state (size_y ());
+  Main_pages.start_state (size_y ());
   let msg = "Select the player that you want to trade" in
   let roster = get_roster_names_by_name team_name in
   let _ = make_button msg in
@@ -157,7 +157,7 @@ let show_gm_team attributes team_name =
 let handle_click_trade_recommendations () = GMTeams
 
 let show_trade_recommendation player attributes =
-  Common_functions.start_state (size_y ());
+  Main_pages.start_state (size_y ());
   try
     let tmap = trade_player player attributes in
     let all_strings = get_all_strings tmap in

@@ -4,8 +4,6 @@ open Trademap
 open Button
 open Main_pages
 open Transition
-open WelcomeScreen
-open State
 open Assistant_gm_play
 
 let rec show_screen cur_state trade_map =

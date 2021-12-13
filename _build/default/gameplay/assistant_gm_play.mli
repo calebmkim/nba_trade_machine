@@ -1,4 +1,4 @@
-open State
+open Main_pages
 
 val show_teams_gm : unit -> gmstate * bool
 (**[show_teams_gm] shows all the 30 NBA teams for the user to pick to

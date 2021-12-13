@@ -6,6 +6,6 @@ type work_log = {
 }
 
 let hours_worked_per_member =
-  { caleb = 10.; tinsae = 8.; karan = 8.; pranay = 8. }
+  { caleb = 20.; tinsae = 7.; karan = 7.; pranay = 7. }
 
-let hours_worked = 34.
+let hours_worked = 41.

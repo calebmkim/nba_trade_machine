@@ -1,6 +1,6 @@
 open Button
 open Trademap
-open State
+open Main_pages
 
 val team_transition : string -> trade_map -> state * trade_map
 (** [team_options team trade_map] is the [(st, tm) ] tuple in which [st]

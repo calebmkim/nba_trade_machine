@@ -8,6 +8,47 @@ open Button
 open Trademap
 open Trade_math
 
+(*TEST PLAN:
+
+  Manual Testing: Essentially, we manually tested all of the methods
+  that used ocaml graphics eg. we ran "make play" and then tested by
+  seeing we correctly implemented the desired behavior. This included
+  (all of these are in the gameplay folder): main_pages.ml,
+  common_functions.ml, welcomeScreen.ml, transition.ml, state.ml,
+  button.ml and assistant_gm_play.ml. Obviously, play.ml, in the
+  state_handler folder, also falls into this category as well.
+
+  Automatically tested: We automatically used unit testing on the
+  methods that didn't invovle the ocaml graphics. Most of these involved
+  dealing with player and team stats of some sort, or dealing with the
+  Trademap module: the Trademap module was the data structure we used to
+  keep the trade organized: it is a (string * string list) list , in
+  which each element of the list is a tuple composed of (team_name,
+  players_recieving).
+
+  Therefore, we automatically tested all of the files from the
+  data_handling folder, which included handle_salarydata.ml,
+  handle_team_stats.ml, and json_translation.ml. From the gameplay
+  folder, we tested: assitant_gm_math.ml, trade_math.ml,and trademap.ml.
+
+  How we tested (glass box, black box, etc.): We used a combination of
+  black and glass box testing. We first wrote test cases that would not
+  look at the implementation. Then, we would examine the method to see
+  if there were any possible cases we would be missing. Most of the
+  times, these woudl be corner cases, something like where a player is a
+  rookie, and therefore you cannot access his 3 point percentage from
+  last year, and therefore it is [None].
+
+  Why this demonstrates correctness: Our system was mainly composed into
+  a "backend" which handled the trademap data structure and team/player
+  stats, and a "frontend" which essentially helped the user to see all
+  of the bakcend handling that we did. If all of the backend math and
+  data strucutres are correct (which we think is the case becasue of our
+  automatic testing), and we cna correctly see all of the backend math
+  and data structure displaeyd on the screen (which we think is the case
+  because of our manual testing), then we believe our system is
+  correct.*)
+
 (********************************************************************
   The following code is NOT our own. All credit should go to 
   the Cornell CS 3110 course staff.  

@@ -1,5 +1,35 @@
 open Trademap
-open State
+
+type state =
+  | Welcome
+  | Teams
+  | Roster of (string * bool)
+  | Team_transition of string
+  | Player of (string * bool)
+  | Player_transition of string
+  | FinalTeams
+  | TradeResults
+  | AlteredRoster of (string * string list * string list)
+  | Error of (string * state)
+
+type gmstate =
+  | GMTeams
+  | GMRoster of string
+  | GMAttributes of string
+  | GMRecommendation of string
+  | GMError of (string * gmstate)
+
+(**The type state represents which stage the user is at in terms of
+   executing the trade and therefore determines what to show the user on
+   the screen. *)
+
+val start_state : int -> unit
+(**[start_state y] opens the window and moves the graph to (0,y)*)
+
+val show_welcome : unit -> string
+(**[show_welcome a] is the state the game should be in given the user's
+   click on the welcome screen. While waiting for the user's click, it
+   displays a welcome screen message. *)
 
 val show_roster : string -> bool -> state
 (**show_team_roster [team_name are_teams_picked] is the state that the

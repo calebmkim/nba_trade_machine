@@ -1,11 +1,54 @@
 open Graphics
 open Data
 open Json_translation
-open Common_functions
 open Button
 open Trademap
-open State
 open Trade_math
+
+type state =
+  | Welcome
+  | Teams
+  | Roster of (string * bool)
+  | Team_transition of string
+  | Player of (string * bool)
+  | Player_transition of string
+  | FinalTeams
+  | TradeResults
+  | AlteredRoster of (string * string list * string list)
+  | Error of (string * state)
+
+type gmstate =
+  | GMTeams
+  | GMRoster of string
+  | GMAttributes of string
+  | GMRecommendation of string
+  | GMError of (string * gmstate)
+
+(**[open_graph_our_settings] opens a 900x600 graph.*)
+let open_graph_our_settings s =
+  let _ = open_graph " 900x600" in
+  ()
+(*set_font "-*-*-*-*-*-*-*-*-*-*-*-150-*-*"*)
+
+let start_state max_y =
+  open_graph_our_settings "";
+  moveto 0 max_y
+
+let handle_click_welcome st tm_button gm_button =
+  if is_button_clicked tm_button st then "Teams"
+  else if is_button_clicked gm_button st then "GM"
+  else "Welcome"
+
+let show_welcome t =
+  let _ = start_state (size_y ()) in
+  let _ =
+    [ "Welcome to our NBA Trade Machine"; "What would you like to do?" ]
+    |> make_button_list
+  in
+  let tm_button = make_button "Play the Trade Machine" in
+  let gm_button = make_button "Play as a GM for an NBA team" in
+  let st = wait_next_event [ Button_down ] in
+  handle_click_welcome st tm_button gm_button
 
 let handle_click_roster st player_list are_teams_picked =
   try
