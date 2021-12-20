@@ -1,0 +1,4 @@
+(executable
+ (name per_model)
+ (libraries owl Data))
+

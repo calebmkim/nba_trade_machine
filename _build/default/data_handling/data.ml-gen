@@ -1,0 +1,10 @@
+(** @canonical Data.HandleSalaryData *)
+module HandleSalaryData = Data__HandleSalaryData
+
+
+(** @canonical Data.HandleTeamStats *)
+module HandleTeamStats = Data__HandleTeamStats
+
+
+(** @canonical Data.JsonTranslation *)
+module JsonTranslation = Data__JsonTranslation

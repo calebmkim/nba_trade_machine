@@ -1,0 +1,6 @@
+description = ""
+requires = "Data graphics yojson"
+archive(byte) = "gameplay.cma"
+archive(native) = "gameplay.cmxa"
+plugin(byte) = "gameplay.cma"
+plugin(native) = "gameplay.cmxs"

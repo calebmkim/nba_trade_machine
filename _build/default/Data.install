@@ -1,0 +1,36 @@
+lib: [
+  "_build/install/default/lib/Data/META"
+  "_build/install/default/lib/Data/data.a"
+  "_build/install/default/lib/Data/data.cma"
+  "_build/install/default/lib/Data/data.cmi"
+  "_build/install/default/lib/Data/data.cmt"
+  "_build/install/default/lib/Data/data.cmx"
+  "_build/install/default/lib/Data/data.cmxa"
+  "_build/install/default/lib/Data/data.ml"
+  "_build/install/default/lib/Data/data__HandleSalaryData.cmi"
+  "_build/install/default/lib/Data/data__HandleSalaryData.cmt"
+  "_build/install/default/lib/Data/data__HandleSalaryData.cmti"
+  "_build/install/default/lib/Data/data__HandleSalaryData.cmx"
+  "_build/install/default/lib/Data/data__HandleTeamStats.cmi"
+  "_build/install/default/lib/Data/data__HandleTeamStats.cmt"
+  "_build/install/default/lib/Data/data__HandleTeamStats.cmti"
+  "_build/install/default/lib/Data/data__HandleTeamStats.cmx"
+  "_build/install/default/lib/Data/data__JsonTranslation.cmi"
+  "_build/install/default/lib/Data/data__JsonTranslation.cmt"
+  "_build/install/default/lib/Data/data__JsonTranslation.cmti"
+  "_build/install/default/lib/Data/data__JsonTranslation.cmx"
+  "_build/install/default/lib/Data/dune-package"
+  "_build/install/default/lib/Data/handleSalaryData.ml"
+  "_build/install/default/lib/Data/handleSalaryData.mli"
+  "_build/install/default/lib/Data/handleTeamStats.ml"
+  "_build/install/default/lib/Data/handleTeamStats.mli"
+  "_build/install/default/lib/Data/jsonTranslation.ml"
+  "_build/install/default/lib/Data/jsonTranslation.mli"
+  "_build/install/default/lib/Data/opam"
+]
+libexec: [
+  "_build/install/default/lib/Data/data.cmxs"
+]
+doc: [
+  "_build/install/default/doc/Data/README.md"
+]

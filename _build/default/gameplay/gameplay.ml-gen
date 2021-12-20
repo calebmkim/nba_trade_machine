@@ -1,0 +1,26 @@
+(** @canonical Gameplay.AssistantGmMath *)
+module AssistantGmMath = Gameplay__AssistantGmMath
+
+
+(** @canonical Gameplay.AssistantGmPlay *)
+module AssistantGmPlay = Gameplay__AssistantGmPlay
+
+
+(** @canonical Gameplay.Button *)
+module Button = Gameplay__Button
+
+
+(** @canonical Gameplay.MainPages *)
+module MainPages = Gameplay__MainPages
+
+
+(** @canonical Gameplay.Trademap *)
+module Trademap = Gameplay__Trademap
+
+
+(** @canonical Gameplay.Trademath *)
+module Trademath = Gameplay__Trademath
+
+
+(** @canonical Gameplay.Transition *)
+module Transition = Gameplay__Transition
