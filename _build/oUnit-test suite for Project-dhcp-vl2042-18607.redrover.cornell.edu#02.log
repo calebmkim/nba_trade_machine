@@ -1,0 +1,288 @@
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:1:tamp2.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:1:tamp2 is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:1:tamp2.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:2:Curry to Jazz or Bulls.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:2:Curry to Jazz or Bulls is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:2:Curry to Jazz or Bulls.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:5:tmap1 Jazz acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:5:tmap1 Jazz acquiring is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:5:tmap1 Jazz acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:7:tmap2 Clippers Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:7:tmap2 Clippers Acquiring is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:7:tmap2 Clippers Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:9:tmap2 Pelicans Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:9:tmap2 Pelicans Acquiring is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:9:tmap2 Pelicans Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:10:tmap3 Mavs Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:10:tmap3 Mavs Acquiring is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:10:tmap3 Mavs Acquiring.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:12:tmap1 Jazz losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:12:tmap1 Jazz losing is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:12:tmap1 Jazz losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:14:tmap2 Clippers losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:14:tmap2 Clippers losing is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:14:tmap2 Clippers losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:16:tmap4 Celtics losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:16:tmap4 Celtics losing is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:16:tmap4 Celtics losing.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:18:Invalid Partially Complete.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:18:Invalid Partially Complete is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:18:Invalid Partially Complete.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:20:invalid nonempty.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:20:invalid nonempty is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:20:invalid nonempty.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:23:Valid Trade.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:23:Valid Trade is successful.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:23:Valid Trade.
+2021-12-14T01:42:09+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:24:Valid Trade.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:24:Valid Trade is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:24:Valid Trade.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:26:tmap5 partial get all strings.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:26:tmap5 partial get all strings is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:26:tmap5 partial get all strings.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:28:Tmap2 change_rosters, PG13 no longer on clippers .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:28:Tmap2 change_rosters, PG13 no longer on clippers  is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:28:Tmap2 change_rosters, PG13 no longer on clippers .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:30:Tmap2 change_rosters, Kawhi still on clippers .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:30:Tmap2 change_rosters, Kawhi still on clippers  is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:30:Tmap2 change_rosters, Kawhi still on clippers .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:32:Tmap2 change_rosters, Zion Williamson to rockets .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:32:Tmap2 change_rosters, Zion Williamson to rockets  is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:32:Tmap2 change_rosters, Zion Williamson to rockets .
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:34:Tmap4 change_rosters, Simons no longer on blazers.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:34:Tmap4 change_rosters, Simons no longer on blazers is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:34:Tmap4 change_rosters, Simons no longer on blazers.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:36:Tmap4 change_rosters, Dame still on blazers.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:36:Tmap4 change_rosters, Dame still on blazers is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:36:Tmap4 change_rosters, Dame still on blazers.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:38:Tmap4 change_rosters, Smart not in receiving.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:38:Tmap4 change_rosters, Smart not in receiving is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:38:Tmap4 change_rosters, Smart not in receiving.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:40:Lakers not in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:40:Lakers not in tmap 5 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:40:Lakers not in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:42:Magic in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:42:Magic in tmap 5 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:42:Magic in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:44:Pelicans in tmap2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:44:Pelicans in tmap2 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:44:Pelicans in tmap2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:47:Celtics not in trade after removed.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:47:Celtics not in trade after removed is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:47:Celtics not in trade after removed.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:49:Lebron James not in tmap 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:49:Lebron James not in tmap 2 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:49:Lebron James not in tmap 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:51:Kawhi Leonard not in tmap 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:51:Kawhi Leonard not in tmap 2 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:51:Kawhi Leonard not in tmap 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:53:Gary Harris in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:53:Gary Harris in tmap 5 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:53:Gary Harris in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:55:Josh Gidden not in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:55:Josh Gidden not in tmap 5 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:55:Josh Gidden not in tmap 5.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:57:Rockets in map 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:57:Rockets in map 2 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:57:Rockets in map 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:59:Clippers in map 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:59:Clippers in map 2 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:59:Clippers in map 2.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:61:Kyrie ws per 48.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:61:Kyrie ws per 48 is successful.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:61:Kyrie ws per 48.
+2021-12-14T01:42:10+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:62:Herbert Jones ws per 48.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:62:Herbert Jones ws per 48 is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:62:Herbert Jones ws per 48.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:65:tmap4 complete is viable for celtics.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:65:tmap4 complete is viable for celtics is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:65:tmap4 complete is viable for celtics.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:66:tmap4 complete is not viable for blazers.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:66:tmap4 complete is not viable for blazers is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:66:tmap4 complete is not viable for blazers.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:68:tmap5 incomplete is viable for thunder.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:68:tmap5 incomplete is viable for thunder is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:68:tmap5 incomplete is viable for thunder.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:70:tmap5 complete isn't viable for thunder.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:70:tmap5 complete isn't viable for thunder is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:70:tmap5 complete isn't viable for thunder.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:72:Nuggets win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:72:Nuggets win pct is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:72:Nuggets win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:74:Bucks win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:74:Bucks win pct is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:74:Bucks win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:76:Hawks win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:76:Hawks win pct is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:76:Hawks win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:78:Celtics win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:78:Celtics win pct is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:78:Celtics win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:80:Bulls win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:80:Bulls win pct is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:80:Bulls win pct.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:83:Bulls cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:83:Bulls cap diff is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:83:Bulls cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:84:Heat cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:84:Heat cap diff is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:84:Heat cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:86:Nuggets cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:86:Nuggets cap diff is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:86:Nuggets cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:88:Atlanta cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:88:Atlanta cap diff is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:88:Atlanta cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:90:Cavs cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:90:Cavs cap diff is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:90:Cavs cap diff.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:93:Paul George Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:93:Paul George Salary is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:93:Paul George Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:95:Kyle Lowry Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:95:Kyle Lowry Salary is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:95:Kyle Lowry Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:97:Andrew Wiggins Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:97:Andrew Wiggins Salary is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:97:Andrew Wiggins Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:99:Danny Green Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:99:Danny Green Salary is successful.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:99:Danny Green Salary.
+2021-12-14T01:42:11+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:100:Steph Curry on Warriors.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:100:Steph Curry on Warriors is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:100:Steph Curry on Warriors.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:102:Tim Hardaway Jr. on Mavs.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:102:Tim Hardaway Jr. on Mavs is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:102:Tim Hardaway Jr. on Mavs.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:105:Enes Kanter not on Thunder.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:105:Enes Kanter not on Thunder is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:105:Enes Kanter not on Thunder.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:107:Damian Lillard on Blazers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:107:Damian Lillard on Blazers is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:107:Damian Lillard on Blazers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:109:Paul George on Clippers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:109:Paul George on Clippers is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:109:Paul George on Clippers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:111:James Harden on Nets.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:111:James Harden on Nets is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:111:James Harden on Nets.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:113:Jrue Holiday not on Clippers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:113:Jrue Holiday not on Clippers is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:113:Jrue Holiday not on Clippers.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:115:Zion ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:115:Zion ows is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:115:Zion ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:117:James Harden ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:117:James Harden ows is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:117:James Harden ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:119:Zion dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:119:Zion dws is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:119:Zion dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:121:James Harden dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:121:James Harden dws is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:121:James Harden dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:123:Cade Cunningham dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:123:Cade Cunningham dws is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:123:Cade Cunningham dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:125:Lebron ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:125:Lebron ows is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:125:Lebron ows.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:127:Jalen Johnson dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:127:Jalen Johnson dws is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:127:Jalen Johnson dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:129:Kevin Love dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:129:Kevin Love dws is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:129:Kevin Love dws.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:131:Lebron mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:131:Lebron mins is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:131:Lebron mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:133:AD mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:133:AD mins is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:133:AD mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:135:Collin Sexton mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:135:Collin Sexton mins is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:135:Collin Sexton mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:137:Chris Paul mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:137:Chris Paul mins is successful.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:137:Chris Paul mins.
+2021-12-14T01:42:12+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:139:Danny Green mins.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:139:Danny Green mins is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:139:Danny Green mins.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:141:Lebron team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:141:Lebron team is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:141:Lebron team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:143:Jalen Green Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:143:Jalen Green Team is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:143:Jalen Green Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:145:Paul George Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:145:Paul George Team is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:145:Paul George Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:147:Trae Young Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:147:Trae Young Team is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:147:Trae Young Team.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:149:B Ingram pts/48.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:149:B Ingram pts/48 is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:149:B Ingram pts/48.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:151:Richaul Holmes pts/48.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:151:Richaul Holmes pts/48 is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:151:Richaul Holmes pts/48.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:153:PG13 per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:153:PG13 per is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:153:PG13 per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:155:Buddy Hield per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:155:Buddy Hield per is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:155:Buddy Hield per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:157:Pascal Siakam per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:157:Pascal Siakam per is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:157:Pascal Siakam per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:159:Keldon Johnson per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:159:Keldon Johnson per is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:159:Keldon Johnson per.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:161:Duncan Robinson Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:161:Duncan Robinson Ast Pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:161:Duncan Robinson Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:163:Zach Lavine Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:163:Zach Lavine Ast Pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:163:Zach Lavine Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:165:Chris Paul Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:165:Chris Paul Ast Pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:165:Chris Paul Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:167:Joe Harris Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:167:Joe Harris Ast Pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:167:Joe Harris Ast Pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:169:Serge Ibaka reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:169:Serge Ibaka reb pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:169:Serge Ibaka reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:171:RJ Barrett reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:171:RJ Barrett reb pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:171:RJ Barrett reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:173:Kevin Love reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:173:Kevin Love reb pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:173:Kevin Love reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:175:Ben Simmons reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:175:Ben Simmons reb pct is successful.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:175:Ben Simmons reb pct.
+2021-12-14T01:42:13+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:177:Jrue Holiday reb pct.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:177:Jrue Holiday reb pct is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:177:Jrue Holiday reb pct.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:179:Pascal Siakam def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:179:Pascal Siakam def rating is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:179:Pascal Siakam def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:181:Ricky Rubio def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:181:Ricky Rubio def rating is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:181:Ricky Rubio def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:183:James Harden def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:183:James Harden def rating is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:183:James Harden def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:185:Jimmy Butler def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:185:Jimmy Butler def rating is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:185:Jimmy Butler def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:187:Paul George def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:187:Paul George def rating is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:187:Paul George def rating.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:189:Lowry 3 pct.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:189:Lowry 3 pct is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:189:Lowry 3 pct.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Start test test suite for Project:191:Moses Moody 3 pct.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: Test test suite for Project:191:Moses Moody 3 pct is successful.
+2021-12-14T01:42:14+00:00 dhcp-vl2042-18607.redrover.cornell.edu#02 I: End test test suite for Project:191:Moses Moody 3 pct.
